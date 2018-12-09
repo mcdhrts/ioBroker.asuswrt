@@ -12,17 +12,17 @@ ASUSWRT adapter for ioBroker
 
 Find Active Devices in ASUS Routers running ASUSWRT
 
-Setup
-------------------------------------------------------------------------------
-*Asus Router IP-Address: The IP-Address of the Asus Router
-*Login User: The User Name for the Asus Router
-*Login Password: The Passwort for the User to login
-*SSH-Port: The Port for the SSH Connection to the Asus Router
-*Polling Time: The Time in ms to check for active Devices (for now the mininum time is 60000ms = 60s = 1 Minute)
-*Time Not Active: The Time in ms when a Device is not active anymore. In my case 180000ms = 180s = 3 Minutes works perfectly. Minimum is 60000ms
-
 Tested with Asus GT-AC5300 running ASUSWRT 3.0.0.4.384_32799
- 
+
+## Setup
+1. Asus Router IP-Address: The IP-Address of the Asus Router
+2. Login User: The User Name for the Asus Router
+3. Login Password: The Passwort for the User to login
+4. SSH-Port: The Port for the SSH Connection to the Asus Router
+5. Polling Time: The Time in ms to check for active Devices (for now the mininum time is 60000ms = 60s = 1 Minute)
+6. Time Not Active: The Time in ms when a Device is not active anymore. In my case 180000ms = 180s = 3 Minutes works perfectly. Minimum is 60000ms
+7. Addresses to monitoring: Add the Devices to watch if active or not with the MAC-Address from the Device. Set the Checkbox for active to activate the monitoring
+
 ## Changelog
 
 ### 0.1.1 (2018-12-10)
