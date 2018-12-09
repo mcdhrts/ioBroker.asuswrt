@@ -409,12 +409,28 @@ function getActiveDevices(hosts) {
         return;
     }
 
+    var checkIP = validateIPaddress(adapter.config.asus_ip);
+    if (checkIP == false) {
+        adapter.log.error('The IP-Address ' + adapter.config.asus_ip + ' is no valid IP-Address');
+        stop();
+        return;        
+    }
+
     startUpdateDevices(hosts);
     setLastUpdateTime();
     setTimeout(function () {
         startCheckActiveDevices(hosts);
     }, 30000);    
 
+}
+
+function validateIPaddress(inputText) {
+    var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    if(inputText.value.match(ipformat)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function main() {

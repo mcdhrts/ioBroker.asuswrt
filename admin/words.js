@@ -11,7 +11,7 @@ systemDictionary = {
     "Asus User": {              "en": "Login User",                                      "de": "Login User"},
     "Asus Password": {          "en": "Login Password",                                  "de": "Login Passwort"},
     "Asus IP": {                "en": "Asus Router IP-Address",                          "de": "Asus Router IP-Adresse"},
-    "Active Interval": {        "en": "Time Device not active Anymor (ms)",              "de": "Zeit bis wann das Gerät als Abesend markiert wird (ms)"},
+    "Active Interval": {        "en": "Time Device not active Anymore (ms)",             "de": "Zeit bis wann das Gerät als Abesend markiert wird (ms)"},
     "Enabled": {                "en": "Device Polling Enabled",                          "de": "Gerät Prüfung aktiviert"},
     "SSH Port": {               "en": "SSH Port (Standard 22)",                          "de": "SSH Port (Standard 22)"}           
 };

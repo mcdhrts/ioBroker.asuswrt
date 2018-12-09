@@ -1,6 +1,6 @@
 {
   "name": "iobroker.asuswrt",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "find active devices in asus wrt routers for ioBroker",
   "main": "main.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcdhrts/ioBroker_asuswrt.git"
+    "url": "git+https://github.com/mcdhrts/ioBroker.asuswrt.git"
   },
   "keywords": [
     "asus",
@@ -18,9 +18,9 @@
   "author": "mcdhrts",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mcdhrts/ioBroker_asuswrt/issues"
+    "url": "https://github.com/mcdhrts/ioBroker.asuswrt/issues"
   },
-  "homepage": "https://github.com/mcdhrts/ioBroker_asuswrt#readme",
+  "homepage": "https://github.com/mcdhrts/ioBroker.asuswrt#readme",
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "commander": "^2.11.0",

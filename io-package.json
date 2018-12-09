@@ -1,12 +1,16 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "materialize": true,
-    "news": {    
+    "news": {   
+      "0.1.0": {
+        "en": "first complete checked and running Version",
+        "de": "first complete checked and running Version"
+      },
       "0.0.1": {
-        "en": "first beta ",
-        "de": "first beta "
+        "en": "first beta",
+        "de": "first beta"
       }
     },
     "title": "ASUSWRT Adapter",
@@ -33,14 +37,14 @@
     "mode": "daemon",
     "messagebox": true,
 		"enabled": true,
-    "readme": "https://github.com/mcdhrts/ioBroker_asuswrt/blob/master/README.md",
+    "readme": "https://github.com/mcdhrts/ioBroker.asuswrt/blob/master/README.md",
     "loglevel": "info",
     "restartAdapters": [
       "asuswrt"
     ],        
     "keywords": ["asus", "asuswrt"],
     "icon": "asuswrt.png",
-    "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker_asuswrt/master/admin/asuswrt.png",
+    "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker.asuswrt/master/admin/asuswrt.png",
     "type": "hardware"
   },
   "native": {
