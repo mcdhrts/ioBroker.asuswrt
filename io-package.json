@@ -1,0 +1,55 @@
+{
+  "common": {
+    "name": "asuswrt",
+    "version": "0.0.1",
+    "materialize": true,
+    "news": {    
+      "0.0.1": {
+        "en": "first beta ",
+        "de": "first beta "
+      }
+    },
+    "title": "ASUSWRT Adapter",
+    "titleLang": {
+      "en": "ASUSWRT adapter",
+      "de": "ASUSWRT Adapter",
+      "ru": "Адаптер ASUSWRT",
+      "pt": "adaptador ASUSWRT",
+      "nl": "ASUSWRT-adapter",
+      "fr": "ASUSWRT adaptateur",
+      "it": "ASUSWRT adapter",
+      "es": "adaptador ASUSWRT",
+      "pl": "ASUSWRT adapter"
+    },
+    "desc": {
+      "en": "Find Active Devices in ASUS Routers running ASUSWRT for ioBroker",
+      "de": "Finde aktive Geräte in ASUS Routers mit ASUSWRT für ioBroker"
+    },
+    "authors": [
+        "mcdhrts"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "messagebox": true,
+		"enabled": true,
+    "readme": "https://github.com/mcdhrts/ioBroker_asuswrt/blob/master/README.md",
+    "loglevel": "info",
+    "restartAdapters": [
+      "asuswrt"
+    ],        
+    "keywords": ["asus", "asuswrt"],
+    "icon": "asuswrt.png",
+    "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker_asuswrt/master/admin/asuswrt.png",
+    "type": "hardware"
+  },
+  "native": {
+    "asus_ip": "x.x.x.x",
+    "asus_user": "admin",
+    "asus_pw": "",
+    "interval": "60000",
+    "active_interval": "180000",
+    "ssh_port": "22"
+  },
+  "objects": []
+}

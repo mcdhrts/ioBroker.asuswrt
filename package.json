@@ -1,0 +1,39 @@
+{
+  "name": "iobroker.asuswrt",
+  "version": "0.0.1",
+  "description": "find active devices in asus wrt routers for ioBroker",
+  "main": "main.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcdhrts/ioBroker_asuswrt"
+  },
+  "keywords": [
+    "asus",
+    "asuswrt",
+    "iobroker"
+  ],
+  "author": "mcdhrts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcdhrts/ioBroker_asuswrt/issues"
+  },
+  "homepage": "https://github.com/mcdhrts/ioBroker_asuswrt#readme",
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "commander": "^2.11.0",
+    "lodash.defaultto": "^4.14.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.isequal": "^4.5.0",
+    "loglevel": "^1.5.1",
+    "ssh2": "^0.6.0",
+    "simple-ssh": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^4.1.0",
+    "chai": "^4.1.2"
+  }
+}

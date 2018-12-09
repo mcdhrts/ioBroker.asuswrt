@@ -1,0 +1,156 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../lib/js/materialize.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+<script type="text/javascript" src="words.js"></script>
+
+
+<style>
+    .table_header {
+        background-color: blue;
+        color: white;
+    }
+    .ip {
+        width: 150px;
+        text-align: right;
+    }
+</style>
+<!-- you have to define 2 functions in the global scope: -->
+<script type="text/javascript">
+
+    var devices = [];
+    // the function loadSettings has to exist ...
+    function load(settings, onChange) {
+        if (!settings) return;
+        for (var key in settings) {
+            if (!settings.hasOwnProperty(key)) continue;
+            var $value = $('#' + key + '.value');
+            if ($value.attr('type') === 'checkbox') {
+                $value.prop('checked', settings[key]).on('change', function() {
+                    if ($('#auth').prop('checked')) {
+                        $('#secure').prop('checked', true);
+                    }
+                    onChange();
+                    showHideSettings();
+                });
+            } else {
+                $value.val(settings[key]).on('change', function() {
+                    onChange();
+                }).keyup(function() {
+                    onChange();
+                });
+            }
+        }
+
+        devices    = settings.devices    || [];
+        onChange(false);
+
+        values2table('devices', devices, onChange);
+    }
+    // ... and the function save has to exist.
+    // you have to make sure the callback is called with the settings object as first param!
+    function save(callback) {
+        var obj = {};
+        $('.value').each(function () {
+            var $this = $(this);
+            if ($this.attr('type') === 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
+        });
+
+        obj.devices = table2values('devices');
+
+        callback(obj);
+    }
+</script>
+<style>
+    .m .select-wrapper+label {
+        top: 100%;
+    }
+</style>
+</head>
+<body>
+<!-- you have to put your config page in a div with id adapter-container -->
+<div class="m adapter-container">
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s2"><a href="#tab-main"    class="translate active">Main settings</a></li>
+                <li class="tab col s2"><a href="#tab-devices" class="translate">addresses</a></li>
+            </ul>
+        </div>
+
+        <div id="tab-main"      class="col s12 page">
+            <div class="row">
+                <div class="col s12 m4 l2">
+                    <img src="asuswrt.png" class="logo">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="col s12">
+                        <h6 class="translate sub-title">Asus Login</h6>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col s12">
+                        <input class="value" id="asus_ip"/><label for="asus_ip" class="translate">Asus IP</label>
+                    </div>
+                </div>
+        
+                <div class="row">     
+                    <div class="col s6">
+                        <input class="value" id="asus_user"/><label for="asus_user" class="translate">Asus User</label>
+                    </div>
+                    <div class="col s6">
+                        <input class="value" id="asus_pw" type="password"/><label for="asus_pw" class="translate">Asus Password</label>
+                    </div>
+                    <div class="col s6">
+                        <input class="value" id="ssh_port" type="text"/><label for="ssh_port" class="translate">SSH Port</label>
+                    </div>                    
+                </div>
+
+                <div class="row">     
+                    <div class="col s6">
+                        <input class="value number" id="interval" size="5" maxlength="6" type="number"/>
+                        <label class="translate" for="interval">interval</label>
+                    </div>
+                    <div class="col s6">
+                        <input class="value number" id="active_interval" size="5" maxlength="6" type="number"/>
+                        <label class="translate" for="active_interval">Active Interval</label> 
+                    </div>
+                </div>
+             </div>                                            
+        </div>
+
+        <div id="tab-devices"    class="col s12 page">
+            <div class="col s12" id="devices">
+                <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
+                <div class="table-values-div">
+                    <table class="table-values">
+                        <thead>
+                        <tr>
+                            <th data-name="name"    style="width: 50%" class="translate">name</th>
+                            <th data-name="mac"     style="width: 30%" class="translate">macaddress</th>
+                            <th data-name="active"  style="width: 70px" data-style="width: 70px" data-type="checkbox" class="translate">Enabled</th>
+                            <th data-buttons="delete up down" style="width: 120px"></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
