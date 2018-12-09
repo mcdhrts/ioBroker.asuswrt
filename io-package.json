@@ -4,6 +4,10 @@
     "version": "0.1.0",
     "materialize": true,
     "news": {   
+      "0.1.1": {
+        "en": "Update Readme",
+        "de": "Update Readme"
+      },      
       "0.1.0": {
         "en": "first complete checked and running Version",
         "de": "first complete checked and running Version"
