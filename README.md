@@ -25,6 +25,9 @@ Tested with Asus GT-AC5300 running ASUSWRT 3.0.0.4.384_32799
 
 ## Changelog
 
+### 0.1.2 (2018-12-10)
+* (mcdhrts) Update wrong dependencies
+
 ### 0.1.1 (2018-12-10)
 * (mcdhrts) Update README
 

@@ -4,6 +4,10 @@
     "version": "0.1.0",
     "materialize": true,
     "news": {   
+      "0.1.2": {
+        "en": "Update wrong dependencies",
+        "de": "Update wrong dependencies"
+      },          
       "0.1.1": {
         "en": "Update Readme",
         "de": "Update Readme"
