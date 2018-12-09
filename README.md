@@ -2,6 +2,12 @@
 # ioBroker.asuswrt
 =================
 
+[![NPM version](http://img.shields.io/npm/v/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
+[![Tests](https://travis-ci.org/ioBroker/ioBroker.asuswrt.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.asuswrt)
+
+[![NPM](https://nodei.co/npm/iobroker.asuswrt.png?downloads=true)](https://nodei.co/npm/iobroker.asuswrt/)
+
 ASUSWRT adapter for ioBroker
 ------------------------------------------------------------------------------
 
