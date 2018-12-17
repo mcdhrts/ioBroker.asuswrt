@@ -13,5 +13,6 @@ systemDictionary = {
     "Asus IP": {                "en": "Asus Router IP-Address",                          "de": "Asus Router IP-Adresse"},
     "Active Interval": {        "en": "Time Device not active Anymore (ms)",             "de": "Zeit bis wann das Gerät als Abesend markiert wird (ms)"},
     "Enabled": {                "en": "Device Polling Enabled",                          "de": "Gerät Prüfung aktiviert"},
-    "SSH Port": {               "en": "SSH Port (Standard 22)",                          "de": "SSH Port (Standard 22)"}           
+    "SSH Port": {               "en": "SSH Port (Standard 22)",                          "de": "SSH Port (Standard 22)"},          
+    "ssh_type": {               "en": "SSH Type (see Readme)",                           "de": "SSH Typ (siehe Readme)"}    
 };

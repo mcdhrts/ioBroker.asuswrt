@@ -9,16 +9,22 @@
  */
 
 'use strict';
-//const SSH2 = require('ssh2');
+
+//SIMPLE-SSH
 const simpleSSH = require('simple-ssh');
+
+//SSH2
+var Client = require('ssh2').Client;
+var conn = new Client();
+
+//OTHER
 const utils = require(__dirname + '/lib/utils');
 const deviceCommand = 'PATH=$PATH:/bin:/usr/sbin:/sbin && ip neigh';
 
-var result;
-var err;
 var timer = null;
 var stopTimer = null;
 var isStopping = false;
+var stopExecute = false;
 var lastTimeUpdateDevices = 0;
 
 var adapter = new utils.Adapter({
@@ -387,6 +393,74 @@ function setLastUpdateTime() {
     lastTimeUpdateDevices = date.getTime();
 }
 
+async function startUpdateDevicesSSH2(hosts) {
+    await connectToRouterSSH2();
+    conn.on('ready', function() {
+        adapter.log.info('SSH Connection to Router is ready, starting Device Checking');
+        stopExecute = false;
+        startCommandSSH2(hosts);
+    });
+}
+
+function startCommandSSH2(hosts) {
+    if (stopTimer) clearTimeout(stopTimer);
+    if (!isStopping)  {
+        if (stopExecute === false) {
+            updateDeviceSSH2(hosts);
+            setLastUpdateTime();
+            setTimeout(function () {
+                startCommandOverAndOver(hosts);
+            }, adapter.config.interval);
+        }
+    }
+}
+
+function updateDeviceSSH2(macArray) {
+    try {
+        conn.exec(deviceCommand, function(err, stream) {
+            if (err) throw err;
+            stream.on('data', function(data) {
+                var arraystdout = data.split(" ");
+                if (arraystdout.length == 6) {                                
+                    var mac = arraystdout[4].replace(/:/g,"");  
+                    mac = mac.toLowerCase();
+                    setDeviceActive(mac,macArray,arraystdout);
+                }
+                //adapter.log.info('STDOUT: ' + data);
+            }).stderr.on('data', function(data) {
+                adapter.log.info('STDERR: ' + data);
+            });          
+        });          
+    } catch (error) {        
+        if (String(error) === 'Error: Not connected') {
+            adapter.log.error('SSH2 is not connected, try new Connection in 90s');
+            stopExecute = true;
+            setTimeout(function () {
+                restartSSH2(macArray);
+            }, 90000);             
+        } else {
+            adapter.log.error(error);
+            stopExecute = true;
+        }
+    }
+}
+
+function restartSSH2(hosts) {
+    conn = null;
+    conn = new Client();
+    startUpdateDevicesSSH2(hosts);
+}
+
+function connectToRouterSSH2() {
+    conn.connect({
+        host: adapter.config.asus_ip,
+        port: Number(adapter.config.ssh_port),
+        username: adapter.config.asus_user,
+        password: adapter.config.asus_pw,
+        keepaliveInterval: 60000,
+    });
+}
+
 function getActiveDevices(hosts) {
     if (stopTimer) clearTimeout(stopTimer);
 
@@ -416,12 +490,17 @@ function getActiveDevices(hosts) {
         return;        
     }
 
-    startUpdateDevices(hosts);
-    setLastUpdateTime();
-    setTimeout(function () {
-        startCheckActiveDevices(hosts);
-    }, 30000);    
-
+    if (adapter.config.ssh_type === 'simple-ssh') {
+        startUpdateDevices(hosts);
+        setTimeout(function () {
+            startCheckActiveDevices(hosts);
+        }, 30000);    
+    } else if (adapter.config.ssh_type === 'ssh2') {
+        startUpdateDevicesSSH2(hosts);
+        setTimeout(function () {
+            startCheckActiveDevices(hosts);
+        }, 30000);   
+    }
 }
 
 function validateIPaddress(inputText) {

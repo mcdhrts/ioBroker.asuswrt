@@ -3,7 +3,11 @@
     "name": "asuswrt",
     "version": "0.1.2",
     "materialize": true,
-    "news": {   
+    "news": { 
+      "0.2.0": {
+        "en": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive",
+        "de": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive"
+      },         
       "0.1.2": {
         "en": "Update wrong dependencies",
         "de": "Update wrong dependencies"
