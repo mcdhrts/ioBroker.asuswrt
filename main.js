@@ -404,12 +404,12 @@ async function startUpdateDevicesSSH2(hosts) {
 
 function startCommandSSH2(hosts) {
     if (stopTimer) clearTimeout(stopTimer);
-    if (!isStopping)  {
+    if (!isStopping) {
         if (stopExecute === false) {
             updateDeviceSSH2(hosts);
             setLastUpdateTime();
             setTimeout(function () {
-                startCommandOverAndOver(hosts);
+                startCommandSSH2(hosts);
             }, adapter.config.interval);
         }
     }
