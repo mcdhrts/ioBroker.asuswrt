@@ -420,7 +420,8 @@ function updateDeviceSSH2(macArray) {
         conn.exec(deviceCommand, function(err, stream) {
             if (err) throw err;
             stream.on('data', function(data) {
-                var arraystdout = data.split(" ");
+                var arraystdout = String(data);
+                arraystdout = arraystdout.split(" ");
                 if (arraystdout.length == 6) {                                
                     var mac = arraystdout[4].replace(/:/g,"");  
                     mac = mac.toLowerCase();
