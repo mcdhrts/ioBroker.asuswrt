@@ -33,7 +33,7 @@ You must activate and allow SSH Connections in your Router Settings
 
 ## Changelog
 
-### 0.2.1 (2018-12-17)
+### 0.2.1 (2018-12-29)
 * (mcdhrts) Update Readme and add missing translations
 
 ### 0.2.0 (2018-12-17)
