@@ -4,8 +4,8 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
-[![Tests](http://img.shields.io/travis/soef/iobroker.asuswrt/master.svg)](https://travis-ci.org/soef/iobroker.asuswrt)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/soef/iobroker.asuswrt/blob/master/LICENSE)
+[![Tests](http://img.shields.io/travis/soef/iobroker.asuswrt/master.svg)](https://travis-ci.org/mcdhrts/iobroker.asuswrt)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/mcdhrts/iobroker.asuswrt/blob/master/LICENSE)
 
 [![NPM](https://nodei.co/npm/iobroker.asuswrt.png?downloads=true)](https://nodei.co/npm/iobroker.asuswrt/)
 
