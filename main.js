@@ -26,6 +26,7 @@ var stopTimer = null;
 var isStopping = false;
 var stopExecute = false;
 var lastTimeUpdateDevices = 0;
+var host  = '';
 
 var adapter = new utils.Adapter({
     name: 'asuswrt',
@@ -56,14 +57,8 @@ function stop() {
     }
 }
 
-var host  = ''; // Name of the PC, where the ping runs
-
 adapter.on('objectChange', function (id, obj) {
     adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
-});
-
-adapter.on('stateChange', function (id, state) {
-    //nothing TO-DO
 });
 
 process.on('SIGINT', function () {
@@ -307,7 +302,6 @@ function updateDevice(macArray) {
 }
 
 function setDeviceActive(mac,macArray,arraystdout) {
-    //adapter.log.info('MacArray: ' + macArray + ', check for MAC: ' + mac);
     if (macArray.indexOf(mac) != -1) {
         var realmac = arraystdout[4];
         var ip_address = arraystdout[0];
@@ -346,7 +340,7 @@ function checkDevice(mac) {
                         var timenow = date.getTime();
                         
                         var timebefore = updatestate.lc;
-                        //adapter.log.debug('Letzte Change: ' + timebefore + ', now: ' + timenow);
+                        adapter.log.debug('Last Time Device Changed: ' + timebefore + ', now: ' + timenow);
                         var timeelapsed = timenow - timebefore;
                         if (lastTimeUpdateDevices != 0 && lastTimeUpdateDevices < timenow) {
                             var timebuffer = timenow - lastTimeUpdateDevices;
@@ -365,21 +359,21 @@ function checkDevice(mac) {
     });  
 }
 
-function startUpdateDevices(hosts) {
+function startUpdateDevicesSimpleSSH(hosts) {
     if (stopTimer) clearTimeout(stopTimer);
     setLastUpdateTime();
-    //adapter.log.info('Start Update active Devices'); 
+    adapter.log.debug('Start Update active Devices'); 
     if (!isStopping)  {
         updateDevice(hosts);
         setTimeout(function () {
-            startUpdateDevices(hosts);
+            startUpdateDevicesSimpleSSH(hosts);
         }, adapter.config.interval);
     };      
 }
 
 function startCheckActiveDevices(hosts) {
     if (stopTimer) clearTimeout(stopTimer);
-    //adapter.log.info('Start check if Device still active'); 
+    adapter.log.debug('Start check if Device still active'); 
     if (!isStopping)  {
         checkActiveDevices(hosts); 
         setTimeout(function () {
@@ -427,9 +421,9 @@ function updateDeviceSSH2(macArray) {
                     mac = mac.toLowerCase();
                     setDeviceActive(mac,macArray,arraystdout);
                 }
-                //adapter.log.info('STDOUT: ' + data);
+                adapter.log.debug('STDOUT: ' + data);
             }).stderr.on('data', function(data) {
-                adapter.log.info('STDERR: ' + data);
+                adapter.log.debug('STDERR: ' + data);
             });          
         });          
     } catch (error) {        
@@ -492,7 +486,7 @@ function getActiveDevices(hosts) {
     }
 
     if (adapter.config.ssh_type === 'simple-ssh') {
-        startUpdateDevices(hosts);
+        startUpdateDevicesSimpleSSH(hosts);
         setTimeout(function () {
             startCheckActiveDevices(hosts);
         }, 30000);    
@@ -536,7 +530,4 @@ function main() {
     syncConfig(function () {
         getActiveDevices();
     });
-
-    //Not necessary
-    //adapter.subscribeStates('*');
 }

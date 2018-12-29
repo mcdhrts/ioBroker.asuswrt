@@ -1,9 +1,13 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "materialize": true,
     "news": { 
+      "0.2.1": {
+        "en": "Update Readme and add missing translations",
+        "de": "Update Readme and add missing translations"
+      },          
       "0.2.0": {
         "en": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive",
         "de": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive"
@@ -51,9 +55,7 @@
 		"enabled": true,
     "readme": "https://github.com/mcdhrts/ioBroker.asuswrt/blob/master/README.md",
     "loglevel": "info",
-    "restartAdapters": [
-      "asuswrt"
-    ],        
+    "restartAdapters": [],        
     "keywords": ["asus", "asuswrt"],
     "icon": "asuswrt.png",
     "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker.asuswrt/master/admin/asuswrt.png",
@@ -65,7 +67,8 @@
     "asus_pw": "",
     "interval": "60000",
     "active_interval": "180000",
-    "ssh_port": "22"
+    "ssh_port": "22",
+    "ssh_type": "ssh2"
   },
   "objects": []
 }
