@@ -1,6 +1,6 @@
 {
   "name": "iobroker.asuswrt",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "find active devices in asus wrt routers for ioBroker",
   "main": "main.js",
   "scripts": {

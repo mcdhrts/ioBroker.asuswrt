@@ -66,7 +66,7 @@ process.on('SIGINT', function () {
 });
 
 function createState(name, mac, callback) {
-    var id = mac.replace(/:/g,"");
+    let id = mac.replace(/:/g,"");
     id = id.toLowerCase();
     
     adapter.createState('', id, 'last_time_seen_active', {
@@ -140,28 +140,28 @@ function addState(name, mac, callback) {
 
 function syncConfig(callback) {
     adapter.getStatesOf('', host, function (err, _states) {
-        var configToDelete = [];
-        var configToAdd    = [];
-        var k;
-        var id;
+        let configToDelete = [];
+        let configToAdd    = [];
+        let k;
+        let id;
         if (adapter.config.devices) {
             for (k = 0; k < adapter.config.devices.length; k++) {
                 configToAdd.push(adapter.config.devices[k].mac);
             }
         }
 
-        var tasks = [];
+        let tasks = [];
 
         if (_states) {
             for (var j = 0; j < _states.length; j++) {
-                var mac = _states[j].native.mac;
+                let mac = _states[j].native.mac;
                 if (!mac) {
                     adapter.log.warn('No mac address found for ' + JSON.stringify(_states[j]));
                     continue;
                 }
                 id = mac.replace(/:/g,"");
                 id = id.toLowerCase();
-                var pos = configToAdd.indexOf(mac);
+                let pos = configToAdd.indexOf(mac);
                 if (pos != -1) {
                     configToAdd.splice(pos, 1);
                     for (var u = 0; u < adapter.config.devices.length; u++) {
@@ -199,7 +199,7 @@ function syncConfig(callback) {
         }
 
         processTasks(tasks, function () {
-            var count = 0;
+            let count = 0;
             if (configToAdd.length) {
                 for (var r = 0; r < adapter.config.devices.length; r++) {
                     if (configToAdd.indexOf(adapter.config.devices[r].mac) !== -1) {
@@ -256,13 +256,13 @@ function processTasks(tasks, callback) {
 }
 
 function getActualDateTime() {
-    var today = new Date();
-    var hh = today.getHours();
-    var mm = today.getMinutes();
-    var ss = today.getSeconds();
-    var year = today.getFullYear();
-    var month = today.getMonth() + 1;
-    var day = today.getDate();
+    let today = new Date();
+    let hh = today.getHours();
+    let mm = today.getMinutes();
+    let ss = today.getSeconds();
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
 
     if (hh < 10) {
         hh = '0' + hh;
@@ -276,7 +276,7 @@ function getActualDateTime() {
         ss = '0' + ss;
     }
 
-    var returntext = year + '.' + month + '.' + day + ' ' + hh + ':' + mm + ':' + ss;
+    let returntext = year + '.' + month + '.' + day + ' ' + hh + ':' + mm + ':' + ss;
 
     return returntext;
 }
@@ -291,9 +291,9 @@ function updateDevice(macArray) {
         
     ssh.exec(deviceCommand, {
         out: function(stdout) {
-            var arraystdout = stdout.split(" ");
+            let arraystdout = stdout.split(" ");
             if (arraystdout.length == 6) {                                
-                var mac = arraystdout[4].replace(/:/g,"");  
+                let mac = arraystdout[4].replace(/:/g,"");  
                 mac = mac.toLowerCase();
                 setDeviceActive(mac,macArray,arraystdout);
             }
@@ -303,10 +303,10 @@ function updateDevice(macArray) {
 
 function setDeviceActive(mac,macArray,arraystdout) {
     if (macArray.indexOf(mac) != -1) {
-        var realmac = arraystdout[4];
-        var ip_address = arraystdout[0];
-        var actualstatus = arraystdout[5];              
-        var lastupdate = getActualDateTime();
+        let realmac = arraystdout[4];
+        let ip_address = arraystdout[0];
+        let actualstatus = arraystdout[5];              
+        let lastupdate = getActualDateTime();
     
         adapter.setState(mac + '.last_time_seen_active' , lastupdate   || '-1'       , true);
         adapter.setState(mac + '.ip_address'            , ip_address   || 'undefined', true);
@@ -319,10 +319,10 @@ function setDeviceActive(mac,macArray,arraystdout) {
 }
 
 function checkActiveDevices(macArray) {
-    var arraylength = macArray.length;
+    let arraylength = macArray.length;
     if (arraylength > 0) {
         for (var i = 0; i < arraylength; i++) {
-            var mac = macArray[i];
+            let mac = macArray[i];
             mac = mac.toLowerCase();
             checkDevice(mac);
         }
@@ -336,14 +336,14 @@ function checkDevice(mac) {
             if (state.val == true) {
                 adapter.getState(mac + '.last_time_seen_active', function (err, updatestate) {
                     if (updatestate) {
-                        var date = new Date(); 
-                        var timenow = date.getTime();
+                        let date = new Date(); 
+                        let timenow = date.getTime();
                         
-                        var timebefore = updatestate.lc;
+                        let timebefore = updatestate.lc;
                         adapter.log.debug('Last Time Device Changed: ' + timebefore + ', now: ' + timenow);
-                        var timeelapsed = timenow - timebefore;
+                        let timeelapsed = timenow - timebefore;
                         if (lastTimeUpdateDevices != 0 && lastTimeUpdateDevices < timenow) {
-                            var timebuffer = timenow - lastTimeUpdateDevices;
+                            let timebuffer = timenow - lastTimeUpdateDevices;
                             timeelapsed = timeelapsed - timebuffer;
                         }
                     
@@ -383,7 +383,7 @@ function startCheckActiveDevices(hosts) {
 }
 
 function setLastUpdateTime() {
-    var date = new Date(); 
+    let date = new Date(); 
     lastTimeUpdateDevices = date.getTime();
 }
 
@@ -414,10 +414,10 @@ function updateDeviceSSH2(macArray) {
         conn.exec(deviceCommand, function(err, stream) {
             if (err) throw err;
             stream.on('data', function(data) {
-                var arraystdout = String(data);
+                let arraystdout = String(data);
                 arraystdout = arraystdout.split(" ");
                 if (arraystdout.length == 6) {                                
-                    var mac = arraystdout[4].replace(/:/g,"");  
+                    let mac = arraystdout[4].replace(/:/g,"");  
                     mac = mac.toLowerCase();
                     setDeviceActive(mac,macArray,arraystdout);
                 }
@@ -464,7 +464,7 @@ function getActiveDevices(hosts) {
         for (var i = 0; i < adapter.config.devices.length; i++) {
             if (adapter.config.devices[i].mac.length > 11) {
                 if (adapter.config.devices[i].active) {
-                    var mac = adapter.config.devices[i].mac.replace(/:/g,"");
+                    let mac = adapter.config.devices[i].mac.replace(/:/g,"");
                     mac = mac.toLowerCase();
                     hosts.push(mac);
                 }
@@ -478,7 +478,7 @@ function getActiveDevices(hosts) {
         return;
     }
 
-    var checkIP = validateIPaddress(adapter.config.asus_ip);
+    let checkIP = validateIPaddress(adapter.config.asus_ip);
     if (checkIP == false) {
         adapter.log.error('The IP-Address ' + adapter.config.asus_ip + ' is no valid IP-Address');
         stop();
@@ -486,11 +486,15 @@ function getActiveDevices(hosts) {
     }
 
     if (adapter.config.ssh_type === 'simple-ssh') {
+        // polling mininum 60 Seconds for simple-ssh
+        if (adapter.config.interval < 60000) { adapter.config.interval = 60000; }        
         startUpdateDevicesSimpleSSH(hosts);
         setTimeout(function () {
             startCheckActiveDevices(hosts);
         }, 30000);    
     } else if (adapter.config.ssh_type === 'ssh2') {
+        // polling mininum 10 Seconds for SSH2
+        if (adapter.config.interval < 10000) { adapter.config.interval = 10000; }     
         startUpdateDevicesSSH2(hosts);
         setTimeout(function () {
             startCheckActiveDevices(hosts);
@@ -499,7 +503,7 @@ function getActiveDevices(hosts) {
 }
 
 function validateIPaddress(inputText) {
-    var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    const ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     if(inputText.match(ipformat)) {
         return true;
     } else {
@@ -516,11 +520,6 @@ function main() {
 
     adapter.config.interval = parseInt(adapter.config.interval, 10);
     adapter.config.active_interval = parseInt(adapter.config.active_interval, 10);
-
-    // polling mininum 60 Seconds
-    if (adapter.config.interval < 60000) {
-        adapter.config.interval = 60000;
-    }
 
     // Active Intervall mininum 60 Seconds
     if (adapter.config.active_interval < 60000) {
