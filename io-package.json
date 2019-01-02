@@ -2,7 +2,6 @@
   "common": {
     "name": "asuswrt",
     "version": "0.3.0",
-    "materialize": true,
     "news": { 
       "0.3.0": {
         "en": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s",
@@ -33,17 +32,17 @@
         "de": "first beta"
       }
     },
-    "title": "ASUSWRT Adapter",
+    "title": "ASUSWRT",
     "titleLang": {
-      "en": "ASUSWRT adapter",
-      "de": "ASUSWRT Adapter",
-      "ru": "Адаптер ASUSWRT",
-      "pt": "adaptador ASUSWRT",
-      "nl": "ASUSWRT-adapter",
-      "fr": "ASUSWRT adaptateur",
-      "it": "ASUSWRT adapter",
-      "es": "adaptador ASUSWRT",
-      "pl": "ASUSWRT adapter"
+      "en": "ASUSWRT",
+      "de": "ASUSWRT",
+      "ru": "ASUSWRT",
+      "pt": "ASUSWRT",
+      "nl": "ASUSWRT",
+      "fr": "ASUSWRT",
+      "it": "ASUSWRT",
+      "es": "ASUSWRT",
+      "pl": "ASUSWRT"
     },
     "desc": {
       "en": "Find Active Devices in ASUS Routers running ASUSWRT for ioBroker",
@@ -59,9 +58,10 @@
 		"enabled": true,
     "readme": "https://github.com/mcdhrts/ioBroker.asuswrt/blob/master/README.md",
     "loglevel": "info",
-    "restartAdapters": [],        
+    "restartAdapters": ["asuswrt"],        
     "keywords": ["asus", "asuswrt"],
     "icon": "asuswrt.png",
+    "materialize": true,
     "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker.asuswrt/master/admin/asuswrt.png",
     "type": "hardware"
   },
