@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "news": { 
+      "0.3.1": {
+        "en": "Changed Test Files, no features added",
+        "de": "Test Dateien geändert, keine neuen Funktionen hinzugefügt"
+      },         
       "0.3.0": {
         "en": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s",
         "de": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s"

@@ -33,6 +33,9 @@ You must activate and allow SSH Connections in your Router Settings
 
 ## Changelog
 
+### 0.3.1 (2019-01-03)
+* (mcdhrts) Changed Test Files, no features added
+
 ### 0.3.0 (2018-12-31)
 * (mcdhrts) Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s
 
