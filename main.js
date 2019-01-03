@@ -387,8 +387,15 @@ function setLastUpdateTime() {
     lastTimeUpdateDevices = date.getTime();
 }
 
-async function startUpdateDevicesSSH2(hosts) {
-    await connectToRouterSSH2();
+function startUpdateDevicesSSH2(hosts) {
+    conn.connect({
+        host: adapter.config.asus_ip,
+        port: Number(adapter.config.ssh_port),
+        username: adapter.config.asus_user,
+        password: adapter.config.asus_pw,
+        keepaliveInterval: 60000,
+    });
+    
     conn.on('ready', function() {
         adapter.log.info('SSH Connection to Router is ready, starting Device Checking');
         stopExecute = false;
@@ -444,16 +451,6 @@ function restartSSH2(hosts) {
     conn = null;
     conn = new Client();
     startUpdateDevicesSSH2(hosts);
-}
-
-function connectToRouterSSH2() {
-    conn.connect({
-        host: adapter.config.asus_ip,
-        port: Number(adapter.config.ssh_port),
-        username: adapter.config.asus_user,
-        password: adapter.config.asus_pw,
-        keepaliveInterval: 60000,
-    });
 }
 
 function getActiveDevices(hosts) {
