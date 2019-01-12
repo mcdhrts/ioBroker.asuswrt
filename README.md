@@ -21,17 +21,23 @@ You can find a list from Asus which Router DO NOT use ASUSWRT here: https://even
 
 You must activate and allow SSH Connections in your Router Settings
 
+## Requirements
+
+You need at least NodeJS V6 and Admin V3
+
 ## Setup
 1. Asus Router IP-Address: The IP-Address of the Asus Router
 2. Login User: The User Name for the Asus Router
 3. Login Password: The Passwort for the User to login
 4. SSH-Port: The Port for the SSH Connection to the Asus Router
-4. SSH-Type: Which SSH-Type the Adapter should Use. SSH2 keeps the SSH Session alive, SIMPLE-SSH makes a new SSH Session for every SSH Command. SSH2 is recommended
-6. Polling Time: The Time in ms to check for active Devices (SSH2: Mininum time is 10000ms = 10s, SIMPLE-SSH: Mininum time is 60000ms = 60s = 1 Minute)
-7. Time Not Active: The Time in ms when a Device is not active anymore. In my case 180000ms = 180s = 3 Minutes works perfectly. Minimum is 60000ms
-8. Addresses to monitoring: Add the Devices to watch if active or not with the MAC-Address from the Device. Set the Checkbox for active to activate the monitoring
+5. Polling Time: The Time in ms to check for active Devices (Mininum time is 5000ms = 5s)
+6. Time Not Active: The Time in ms when a Device is not active anymore. In my case 180000ms = 180s = 3 Minutes works perfectly. Minimum is 60000ms
+7. Addresses to monitoring: Add the Devices to watch if active or not with the MAC-Address from the Device. Set the Checkbox for active to activate the monitoring
 
 ## Changelog
+
+### 1.0.0 (2019-01-xx)
+* (mcdhrts) Removed Simple-SSH Support. Add possibility to clear ARP-Cache. Minimum Polling Time down to 5 Seconds. Add possibilty to use SSH-Key File instead of Password. Removed Admin V2 Support.
 
 ### 0.3.1 (2019-01-03)
 * (mcdhrts) Changed Test Files, no features added
