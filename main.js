@@ -10,9 +10,6 @@
 
 'use strict';
 
-//SIMPLE-SSH
-const simpleSSH = require('simple-ssh');
-
 //SSH2
 var Client = require('ssh2').Client;
 var conn = new Client();
