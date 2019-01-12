@@ -9,8 +9,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.asuswrt.png?downloads=true)](https://nodei.co/npm/iobroker.asuswrt/)
 
-ASUSWRT adapter for ioBroker
-------------------------------------------------------------------------------
+## ASUSWRT adapter for ioBroker
 
 Find Active Devices in ASUS Routers running ASUSWRT. 
 You can use this for Example as Presence Detection of Phones to track if someone is at home.
@@ -37,7 +36,12 @@ You need at least NodeJS V6 and Admin V3
 ## Changelog
 
 ### 1.0.0 (2019-01-xx)
-* (mcdhrts) Removed Simple-SSH Support. Add possibility to clear ARP-Cache. Minimum Polling Time down to 5 Seconds. Add possibilty to use SSH-Key File instead of Password. Removed Admin V2 Support.
+* (mcdhrts) 
+    * Add possibilty to use SSH-Key File instead of Password.
+    * Minimum Polling Time down to 5 Seconds.    
+    * Add possibility to clear ARP-Cache.
+    * Removed Simple-SSH Support.    
+    * Removed Admin V2 Support.
 
 ### 0.3.1 (2019-01-03)
 * (mcdhrts) Changed Test Files, no features added

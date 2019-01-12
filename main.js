@@ -293,7 +293,7 @@ function setDeviceActive(mac,macArray,arraystdout) {
         adapter.setState(mac + '.last_status'           , actualstatus || 'undefined', true);
         adapter.setState(mac + '.active'                , true         || 'undefined', true);                    
     
-        adapter.log.debug('Refresh ' + mac + ' update = ' + lastupdate);   
+        adapter.log.debug('Device ' + mac + ' is active'); 
     }
 }
 
@@ -329,7 +329,7 @@ function checkDevice(mac) {
                         if (timeelapsed > adapter.config.active_interval) {
                             adapter.setState(mac + '.active', false);
                             adapter.setState(mac + '.last_status', 'offline');
-                            adapter.log.info('Device ' + mac + ' is not active anymore');
+                            adapter.log.debug('Device ' + mac + ' is not active anymore');
                         }
                     }
                 });    
