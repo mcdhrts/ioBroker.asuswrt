@@ -17,7 +17,9 @@ var conn = new Client();
 //OTHER
 const utils = require(__dirname + '/lib/utils');
 const deviceCommand = 'PATH=$PATH:/bin:/usr/sbin:/sbin && ip neigh';
-const clearIPCacheCommand = 'ip -s -s neigh flush all';
+
+//Maybe in future releases
+//const clearIPCacheCommand = 'ip -s -s neigh flush all';
 
 var timer = null;
 var stopTimer = null;

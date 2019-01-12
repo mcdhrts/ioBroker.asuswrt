@@ -40,9 +40,8 @@ If you need Admin V2 install last supported Version 0.3.1
 ### 1.0.0 (2019-01-xx)
 * (mcdhrts) 
     * Add possibilty to use SSH-Key File instead of Password.
-    * Minimum Polling Time down to 5 Seconds.    
-    * Add possibility to clear ARP-Cache.
-    * Removed Simple-SSH Support.    
+    * Minimum Polling Time down to 5 Seconds.
+    * Removed Simple-SSH Support.
     * Removed Admin V2 Support.
 
 ### 0.3.1 (2019-01-03)

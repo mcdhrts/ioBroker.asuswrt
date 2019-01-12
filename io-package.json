@@ -4,8 +4,8 @@
     "version": "1.0.0",
     "news": { 
       "1.0.0": {
-        "en": "SSH-Key File, Polling down to 5s, Clear ARP-Cache, Remove SIMPLE-SSH, Remove Admin V2 Support",
-        "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, Möglichkeit ARP-Cache zu löschen, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt"
+        "en": "SSH-Key File, Polling down to 5s, Remove SIMPLE-SSH, Remove Admin V2 Support",
+        "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt"
       },           
       "0.3.1": {
         "en": "Changed Test Files, no features added",
