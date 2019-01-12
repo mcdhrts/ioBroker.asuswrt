@@ -24,6 +24,8 @@ You must activate and allow SSH Connections in your Router Settings
 
 You need at least NodeJS V6 and Admin V3
 
+If you need Admin V2 install last supported Version 0.3.1
+
 ## Setup
 1. Asus Router IP-Address: The IP-Address of the Asus Router
 2. Login User: The User Name for the Asus Router
