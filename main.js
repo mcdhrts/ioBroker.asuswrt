@@ -10,9 +10,6 @@
 
 'use strict';
 
-//SIMPLE-SSH
-const simpleSSH = require('simple-ssh');
-
 //SSH2
 var Client = require('ssh2').Client;
 var conn = new Client();
@@ -20,6 +17,10 @@ var conn = new Client();
 //OTHER
 const utils = require(__dirname + '/lib/utils');
 const deviceCommand = 'PATH=$PATH:/bin:/usr/sbin:/sbin && ip neigh';
+const fs = require('fs');
+
+//Maybe in future releases
+//const clearIPCacheCommand = 'ip -s -s neigh flush all';
 
 var timer = null;
 var stopTimer = null;
@@ -27,6 +28,7 @@ var isStopping = false;
 var stopExecute = false;
 var lastTimeUpdateDevices = 0;
 var host  = '';
+var useKeyFile = false;
 
 var adapter = new utils.Adapter({
     name: 'asuswrt',
@@ -281,26 +283,6 @@ function getActualDateTime() {
     return returntext;
 }
 
-function updateDevice(macArray) {
-    var ssh = new simpleSSH({
-        host: adapter.config.asus_ip,
-        user: adapter.config.asus_user,
-        pass: adapter.config.asus_pw,
-        port: Number(adapter.config.ssh_port)
-    });
-        
-    ssh.exec(deviceCommand, {
-        out: function(stdout) {
-            let arraystdout = stdout.split(" ");
-            if (arraystdout.length == 6) {                                
-                let mac = arraystdout[4].replace(/:/g,"");  
-                mac = mac.toLowerCase();
-                setDeviceActive(mac,macArray,arraystdout);
-            }
-        }
-    }).start();
-}
-
 function setDeviceActive(mac,macArray,arraystdout) {
     if (macArray.indexOf(mac) != -1) {
         let realmac = arraystdout[4];
@@ -314,7 +296,7 @@ function setDeviceActive(mac,macArray,arraystdout) {
         adapter.setState(mac + '.last_status'           , actualstatus || 'undefined', true);
         adapter.setState(mac + '.active'                , true         || 'undefined', true);                    
     
-        adapter.log.debug('Refresh ' + mac + ' update = ' + lastupdate);   
+        adapter.log.debug('Device ' + mac + ' is active'); 
     }
 }
 
@@ -350,25 +332,13 @@ function checkDevice(mac) {
                         if (timeelapsed > adapter.config.active_interval) {
                             adapter.setState(mac + '.active', false);
                             adapter.setState(mac + '.last_status', 'offline');
-                            adapter.log.info('Device ' + mac + ' is not active anymore');
+                            adapter.log.debug('Device ' + mac + ' is not active anymore');
                         }
                     }
                 });    
             }
         }
     });  
-}
-
-function startUpdateDevicesSimpleSSH(hosts) {
-    if (stopTimer) clearTimeout(stopTimer);
-    setLastUpdateTime();
-    adapter.log.debug('Start Update active Devices'); 
-    if (!isStopping)  {
-        updateDevice(hosts);
-        setTimeout(function () {
-            startUpdateDevicesSimpleSSH(hosts);
-        }, adapter.config.interval);
-    };      
 }
 
 function startCheckActiveDevices(hosts) {
@@ -388,14 +358,41 @@ function setLastUpdateTime() {
 }
 
 function startUpdateDevicesSSH2(hosts) {
-    conn.connect({
-        host: adapter.config.asus_ip,
-        port: Number(adapter.config.ssh_port),
-        username: adapter.config.asus_user,
-        password: adapter.config.asus_pw,
-        keepaliveInterval: 60000,
-    });
-    
+    try {
+        if (useKeyFile) {
+            if (adapter.config.keyfile_passphrase != "") {
+                conn.connect({
+                    host: adapter.config.asus_ip,
+                    port: Number(adapter.config.ssh_port),
+                    username: adapter.config.asus_user,
+                    privateKey: fs.readFileSync(adapter.config.keyfile),
+                    passphrase: adapter.config.keyfile_passphrase,
+                    keepaliveInterval: 60000,
+                });
+            } else {
+                conn.connect({
+                    host: adapter.config.asus_ip,
+                    port: Number(adapter.config.ssh_port),
+                    username: adapter.config.asus_user,
+                    privateKey: fs.readFileSync(adapter.config.keyfile),
+                    keepaliveInterval: 60000,
+                });
+            }
+        } else {
+            conn.connect({
+                host: adapter.config.asus_ip,
+                port: Number(adapter.config.ssh_port),
+                username: adapter.config.asus_user,
+                password: adapter.config.asus_pw,
+                keepaliveInterval: 60000,
+            });
+        }
+    } catch (error) {
+        adapter.log.error(error);
+        stop();
+        return;
+    }
+  
     conn.on('ready', function() {
         adapter.log.info('SSH Connection to Router is ready, starting Device Checking');
         stopExecute = false;
@@ -481,22 +478,41 @@ function getActiveDevices(hosts) {
         stop();
         return;        
     }
-
-    if (adapter.config.ssh_type === 'simple-ssh') {
-        // polling mininum 60 Seconds for simple-ssh
-        if (adapter.config.interval < 60000) { adapter.config.interval = 60000; }        
-        startUpdateDevicesSimpleSSH(hosts);
-        setTimeout(function () {
-            startCheckActiveDevices(hosts);
-        }, 30000);    
-    } else if (adapter.config.ssh_type === 'ssh2') {
-        // polling mininum 10 Seconds for SSH2
-        if (adapter.config.interval < 10000) { adapter.config.interval = 10000; }     
-        startUpdateDevicesSSH2(hosts);
-        setTimeout(function () {
-            startCheckActiveDevices(hosts);
-        }, 30000);   
+    
+    if (adapter.config.keyfile != "") {
+        fs.stat(adapter.config.keyfile, function(err) {
+            if (err) {
+                adapter.log.info('Key File ' + adapter.config.keyfile + 'not found, try to use Password instead');
+                adapter.log.info('File Error Message: ' + err);
+                if (adapter.config.asus_pw === "") {
+                    adapter.log.error('No Key File and No Password set for the SSH Connection');
+                    stop();
+                    return;
+                }      
+                useKeyFile = false;          
+            } else {
+                useKeyFile = true;
+            }
+        })
+    } else {
+        if (adapter.config.asus_pw === "") {
+            adapter.log.error('No Key File and No Password set for the SSH Connection');
+            stop();
+            return;
+        }    
+        useKeyFile = false;
     }
+
+    // polling mininum 5 Seconds for SSH2
+    if (adapter.config.interval < 5000) { adapter.config.interval = 5000; }  
+    
+    setTimeout(function () {
+        startUpdateDevicesSSH2(hosts);
+    }, 5000);    
+    
+    setTimeout(function () {
+        startCheckActiveDevices(hosts);
+    }, 30000);       
 }
 
 function validateIPaddress(inputText) {

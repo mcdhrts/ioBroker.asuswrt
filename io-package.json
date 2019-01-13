@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "0.3.1",
+    "version": "1.0.0",
     "news": { 
+      "1.0.0": {
+        "en": "SSH-Key File, Polling down to 5s, Remove SIMPLE-SSH, Remove Admin V2 Support",
+        "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt"
+      },           
       "0.3.1": {
         "en": "Changed Test Files, no features added",
         "de": "Test Dateien geändert, keine neuen Funktionen hinzugefügt"
@@ -73,10 +77,10 @@
     "asus_ip": "x.x.x.x",
     "asus_user": "admin",
     "asus_pw": "",
-    "interval": "60000",
+    "interval": "15000",
     "active_interval": "180000",
     "ssh_port": "22",
-    "ssh_type": "ssh2"
+    "keyfile": ""
   },
   "objects": []
 }
