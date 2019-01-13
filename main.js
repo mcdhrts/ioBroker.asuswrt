@@ -17,6 +17,7 @@ var conn = new Client();
 //OTHER
 const utils = require(__dirname + '/lib/utils');
 const deviceCommand = 'PATH=$PATH:/bin:/usr/sbin:/sbin && ip neigh';
+const fs = require('fs');
 
 //Maybe in future releases
 //const clearIPCacheCommand = 'ip -s -s neigh flush all';
@@ -357,22 +358,39 @@ function setLastUpdateTime() {
 }
 
 function startUpdateDevicesSSH2(hosts) {
-    if (useKeyFile) {
-        conn.connect({
-            host: adapter.config.asus_ip,
-            port: Number(adapter.config.ssh_port),
-            username: adapter.config.asus_user,
-            privateKey: require('fs').readFileSync(adapter.config.keyfile),
-            keepaliveInterval: 60000,
-        });
-    } else {
-        conn.connect({
-            host: adapter.config.asus_ip,
-            port: Number(adapter.config.ssh_port),
-            username: adapter.config.asus_user,
-            password: adapter.config.asus_pw,
-            keepaliveInterval: 60000,
-        });
+    try {
+        if (useKeyFile) {
+            if (adapter.config.keyfile_passphrase != "") {
+                conn.connect({
+                    host: adapter.config.asus_ip,
+                    port: Number(adapter.config.ssh_port),
+                    username: adapter.config.asus_user,
+                    privateKey: fs.readFileSync(adapter.config.keyfile),
+                    passphrase: adapter.config.keyfile_passphrase,
+                    keepaliveInterval: 60000,
+                });
+            } else {
+                conn.connect({
+                    host: adapter.config.asus_ip,
+                    port: Number(adapter.config.ssh_port),
+                    username: adapter.config.asus_user,
+                    privateKey: fs.readFileSync(adapter.config.keyfile),
+                    keepaliveInterval: 60000,
+                });
+            }
+        } else {
+            conn.connect({
+                host: adapter.config.asus_ip,
+                port: Number(adapter.config.ssh_port),
+                username: adapter.config.asus_user,
+                password: adapter.config.asus_pw,
+                keepaliveInterval: 60000,
+            });
+        }
+    } catch (error) {
+        adapter.log.error(error);
+        stop();
+        return;
     }
   
     conn.on('ready', function() {
@@ -460,27 +478,38 @@ function getActiveDevices(hosts) {
         stop();
         return;        
     }
-
+    
     if (adapter.config.keyfile != "") {
-        let fl = new File(adapter.config.keyfile);
-        if (fl.exists() == false) {
-            adapter.log.info('Key File ' + adapter.config.keyfile + 'not found, try to use Password instead');
-        } else {
-            useKeyFile = true;
-        }
-    }
-
-    if (useKeyFile == false) {
+        fs.stat(adapter.config.keyfile, function(err) {
+            if (err) {
+                adapter.log.info('Key File ' + adapter.config.keyfile + 'not found, try to use Password instead');
+                adapter.log.info('File Error Message: ' + err);
+                if (adapter.config.asus_pw === "") {
+                    adapter.log.error('No Key File and No Password set for the SSH Connection');
+                    stop();
+                    return;
+                }      
+                useKeyFile = false;          
+            } else {
+                useKeyFile = true;
+            }
+        })
+    } else {
         if (adapter.config.asus_pw === "") {
             adapter.log.error('No Key File and No Password set for the SSH Connection');
             stop();
             return;
-        }
+        }    
+        useKeyFile = false;
     }
 
     // polling mininum 5 Seconds for SSH2
-    if (adapter.config.interval < 5000) { adapter.config.interval = 5000; }     
-    startUpdateDevicesSSH2(hosts);
+    if (adapter.config.interval < 5000) { adapter.config.interval = 5000; }  
+    
+    setTimeout(function () {
+        startUpdateDevicesSSH2(hosts);
+    }, 5000);    
+    
     setTimeout(function () {
         startCheckActiveDevices(hosts);
     }, 30000);       

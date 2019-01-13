@@ -14,7 +14,7 @@ systemDictionary = {
     "SSH Port": {               "en": "SSH Port (Standard 22)",                          "de": "SSH Port (Standard 22)",                          "ru": "Порт SSH (Стандарт 22)",                          "pt": "SSH Port (Standard 22)",                          "nl": "SSH Port (Standard 22)",                          "fr": "SSH Port (Standard 22)",                          "it": "SSH Port (Standard 22)",                          "es": "SSH Port (Standard 22)",                          "pl": "SSH Port (Standard 22)"},          
     "Private Key File": {
         "en": "Path to Private Key File (if not used PW)",
-        "de": "Pfad zum Privat Key File (wenn kein PW verwendet werden soll)",
+        "de": "Pfad zum Privat Key File (wenn kein Passwort verwendet werden soll)",
         "ru": "Path to Private Key File (if not used PW)",
         "pt": "Path to Private Key File (if not used PW)",
         "nl": "Path to Private Key File (if not used PW)",
@@ -22,7 +22,18 @@ systemDictionary = {
         "it": "Path to Private Key File (if not used PW)",
         "es": "Path to Private Key File (if not used PW)",
         "pl": "Path to Private Key File (if not used PW)"
-    },          
+    },
+    "Private Key File Passphrase": {
+        "en": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+        "de": "Passphrase zum Privat Key File (leer lassen wenn Key File nicht verschlüsselt wurde)",
+        "ru": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+        "pt": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+        "nl": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+        "fr": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+        "it": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+        "es": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+        "pl": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)"
+    },               
     "Asus Password": {
         "en": "Login Password (if you not use Key File)",
         "de": "Login Passwort (wenn kein Private Key File verwendet wird)",

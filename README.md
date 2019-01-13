@@ -18,28 +18,44 @@ Tested with Asus GT-AC5300 running ASUSWRT 3.0.0.4.384_32799
 
 You can find a list from Asus which Router DO NOT use ASUSWRT here: https://event.asus.com/2013/nw/ASUSWRT/
 
-You must activate and allow SSH Connections in your Router Settings
-
 ## Requirements
+
+You must activate and allow SSH Connections in your Router Settings
 
 You need at least NodeJS V6 and Admin V3
 
 If you need Admin V2 install last supported Version 0.3.1
 
 ## Setup
-1. Asus Router IP-Address: The IP-Address of the Asus Router
-2. Login User: The User Name for the Asus Router
-3. Login Password: The Passwort for the User to login
-4. SSH-Port: The Port for the SSH Connection to the Asus Router
-5. Polling Time: The Time in ms to check for active Devices (Mininum time is 5000ms = 5s)
-6. Time Not Active: The Time in ms when a Device is not active anymore. In my case 180000ms = 180s = 3 Minutes works perfectly. Minimum is 60000ms
-7. Addresses to monitoring: Add the Devices to watch if active or not with the MAC-Address from the Device. Set the Checkbox for active to activate the monitoring
+* Asus Router IP-Address (Mandatory)
+    * The IP-Address of the Asus Router
+* Login User (Mandatory)
+    * The Username for the Asus Router to login
+* Login Password (Optional if Private Key File used)
+    * The Passwort for the User to login
+    * When you use Private Key File leave this field empty
+* Private Key File (Optional if Password is used)
+    * When you don´t want to use Passwort-Login you can set the Path to the Private Key File for the SSH-Login 
+    * Leave empty if not wanted
+* Private Key File Passphrase (Optional if Private Key File is Encrypted)
+    * When your Key File is encrypted with a Passphrase then enter it here 
+    * Leave empty if not necessary
+* SSH-Port (Mandatory)
+    * The Port for the SSH Connection to the Asus Router
+* Polling Time
+    * The Time in ms to check for active Devices (Mininum time is 5000ms = 5s)
+* Time Not Active
+    * The Time in ms when a Device is not active anymore. 
+    * In my case 180000ms = 180s = 3 Minutes works perfectly. Minimum is 60000ms
+* Addresses to monitoring
+    * Add the Devices to watch if active or not with the MAC-Address from the Device.
+    * Don´t forget to set the Checkbox to activate the monitoring
 
 ## Changelog
 
-### 1.0.0 (2019-01-xx)
+### 1.0.0 (2019-01-13)
 * (mcdhrts) 
-    * Add possibilty to use SSH-Key File instead of Password.
+    * Add possibility to use SSH Private Key File instead of Password.
     * Minimum Polling Time down to 5 Seconds.
     * Removed Simple-SSH Support.
     * Removed Admin V2 Support.
