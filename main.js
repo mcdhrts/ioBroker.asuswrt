@@ -15,7 +15,7 @@ var Client = require('ssh2').Client;
 var conn = new Client();
 
 //OTHER
-const utils = require(__dirname + '/lib/utils');
+const utils = require('@iobroker/adapter-core');
 const deviceCommand = 'PATH=$PATH:/bin:/usr/sbin:/sbin && ip neigh';
 const fs = require('fs');
 
