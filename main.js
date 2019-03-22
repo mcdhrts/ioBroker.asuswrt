@@ -28,27 +28,26 @@ let adapter;
 function startAdapter(options) {
     options = options || {};
     Object.assign(options, {
-      name: 'asuswrt',
+        name: 'asuswrt',
              
-      ready: function () {
-        main();
-      },
-      
-      unload: function () {
-        if (timer) {
-          clearInterval(timer);
-          timer = 0;
-        }
-        isStopping = true;
-      },
-         
-      objectChange: function (id, obj) {
-         adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
-      }     
+        ready: function () {
+            main();
+        },
+        
+        unload: function () {
+            if (timer) {
+                clearInterval(timer);
+                timer = 0;
+            }
+            isStopping = true;
+        },
+            
+        objectChange: function (id, obj) {
+            adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
+        }     
     });
-    
-    adapter = new utils.Adapter(options);
-    
+
+    adapter = new utils.Adapter(options);    
     return adapter;
 };
 
@@ -65,6 +64,10 @@ function stop() {
         }, 30000);
     }
 }
+
+process.on('SIGINT', function () {
+    if (timer) clearTimeout(timer);
+});
 
 function createState(name, mac, callback) {
     let id = mac.replace(/:/g,"");
