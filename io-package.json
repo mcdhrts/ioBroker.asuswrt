@@ -66,6 +66,7 @@
     "license": "MIT",
     "platform": "Javascript/Node.js",
     "mode": "daemon",
+    "compact": true,
     "messagebox": true,
 		"enabled": true,
     "readme": "https://github.com/mcdhrts/ioBroker.asuswrt/blob/master/README.md",
