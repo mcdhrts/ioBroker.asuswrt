@@ -53,6 +53,9 @@ If you need Admin V2 install last supported Version 0.3.1
 
 ## Changelog
 
+### 1.0.1 (2019-03-22)
+* (mcdhrts) Add Support for Compact Mode
+
 ### 1.0.0 (2019-01-13)
 * (mcdhrts) 
     * Add possibility to use SSH Private Key File instead of Password.
@@ -87,7 +90,7 @@ If you need Admin V2 install last supported Version 0.3.1
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 mcdhrts mcdhrts@outlook.com
+Copyright (c) 2019 mcdhrts <mcdhrts@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

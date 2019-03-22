@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "news": { 
+      "1.0.1": {
+        "en": "Add Support for Compact Mode",
+        "de": "Compact Mode wird unterstützt"
+      },          
       "1.0.0": {
         "en": "SSH-Key File, Polling down to 5s, Remove SIMPLE-SSH, Remove Admin V2 Support",
         "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt"

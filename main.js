@@ -1,11 +1,5 @@
-/**
- *
+/*
  *      ioBroker ASUSWRT Adapter
- *
- *      (c) 2018 MCD_HRTS 
- *
- *      MIT License
- *
  */
 
 'use strict';
@@ -30,12 +24,26 @@ var lastTimeUpdateDevices = 0;
 var host  = '';
 var useKeyFile = false;
 
-var adapter = new utils.Adapter({
-    name: 'asuswrt',
-    ready: function () {
-        main();
-    }
-});
+//var adapter = new utils.Adapter({
+//    name: 'asuswrt',
+//    ready: function () {
+//        main();
+//    }
+//});
+
+let adapter;
+function startAdapter(options) {
+     options = options || {};
+     Object.assign(options, {
+          name: 'asuswrt',
+          ready: function () {
+            main();
+          },        
+     });
+     adapter = new utils.Adapter(options);
+
+     return adapter;
+};
 
 adapter.on('unload', function () {
     if (timer) {
@@ -543,3 +551,11 @@ function main() {
         getActiveDevices();
     });
 }
+
+// If started as allInOne/compact mode => return function to create instance
+if (module && module.parent) {
+    module.exports = startAdapter;
+} else {
+    // or start the instance directly
+    startAdapter();
+} 
