@@ -27,25 +27,28 @@ var useKeyFile = false;
 let adapter;
 function startAdapter(options) {
     options = options || {};
-    Object.assign(options, { name: 'asuswrt' });
-    adapter = new utils.Adapter(options);
-
-    adapter.on('ready', function () {
+    Object.assign(options, {
+      name: 'asuswrt',
+             
+      ready: function () {
         main();
-    });
-
-    adapter.on('unload', function () {
+      },
+      
+      unload: function () {
         if (timer) {
-            clearInterval(timer);
-            timer = 0;
+          clearInterval(timer);
+          timer = 0;
         }
         isStopping = true;
+      },
+         
+      objectChange: function (id, obj) {
+         adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
+      }     
     });
-
-    adapter.on('objectChange', function (id, obj) {
-        adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
-    });
-
+    
+    adapter = new utils.Adapter(options);
+    
     return adapter;
 };
 
