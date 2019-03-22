@@ -34,12 +34,13 @@ function startAdapter(options) {
             main();
         },
         
-        unload: function () {
+        unload: function (callback) {
             if (timer) {
                 clearInterval(timer);
                 timer = 0;
             }
             isStopping = true;
+            callback && callback();
         },
             
         objectChange: function (id, obj) {
