@@ -37,12 +37,13 @@ var adapter = new utils.Adapter({
     }
 });
 
-adapter.on('unload', function () {
+adapter.on('unload', function (callback) {
     if (timer) {
         clearInterval(timer);
         timer = 0;
     }
     isStopping = true;
+    callback && callback();
 });
 
 function stop() {
