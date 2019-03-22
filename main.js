@@ -24,34 +24,30 @@ var lastTimeUpdateDevices = 0;
 var host  = '';
 var useKeyFile = false;
 
-//var adapter = new utils.Adapter({
-//    name: 'asuswrt',
-//    ready: function () {
-//        main();
-//    }
-//});
-
 let adapter;
 function startAdapter(options) {
-     options = options || {};
-     Object.assign(options, {
-          name: 'asuswrt',
-          ready: function () {
-            main();
-          },        
-     });
-     adapter = new utils.Adapter(options);
+    options = options || {};
+    Object.assign(options, { name: 'asuswrt' });
+    adapter = new utils.Adapter(options);
 
-     return adapter;
+    adapter.on('ready', function () {
+        main();
+    });
+
+    adapter.on('unload', function () {
+        if (timer) {
+            clearInterval(timer);
+            timer = 0;
+        }
+        isStopping = true;
+    });
+
+    adapter.on('objectChange', function (id, obj) {
+        adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
+    });
+
+    return adapter;
 };
-
-adapter.on('unload', function () {
-    if (timer) {
-        clearInterval(timer);
-        timer = 0;
-    }
-    isStopping = true;
-});
 
 function stop() {
     if (stopTimer) clearTimeout(stopTimer);
@@ -66,14 +62,6 @@ function stop() {
         }, 30000);
     }
 }
-
-adapter.on('objectChange', function (id, obj) {
-    adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
-});
-
-process.on('SIGINT', function () {
-    if (timer) clearTimeout(timer);
-});
 
 function createState(name, mac, callback) {
     let id = mac.replace(/:/g,"");
