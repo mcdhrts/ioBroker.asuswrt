@@ -29,11 +29,11 @@ function startAdapter(options) {
     options = options || {};
     Object.assign(options, {
         name: 'asuswrt',
-             
+
         ready: function () {
             main();
         },
-        
+
         unload: function (callback) {
             if (timer) {
                 clearInterval(timer);
@@ -42,13 +42,13 @@ function startAdapter(options) {
             isStopping = true;
             callback && callback();
         },
-            
+
         objectChange: function (id, obj) {
             adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
-        }     
+        }
     });
 
-    adapter = new utils.Adapter(options);    
+    adapter = new utils.Adapter(options);
     return adapter;
 };
 
@@ -73,7 +73,7 @@ process.on('SIGINT', function () {
 function createState(name, mac, callback) {
     let id = mac.replace(/:/g,"");
     id = id.toLowerCase();
-    
+
     adapter.createState('', id, 'last_time_seen_active', {
         name: name || mac,
         def: -1,
@@ -272,11 +272,11 @@ function getActualDateTime() {
     if (hh < 10) {
         hh = '0' + hh;
     }
-    
+
     if (mm < 10) {
         mm = '0' + mm;
     }
-    
+
     if (ss < 10) {
         ss = '0' + ss;
     }
@@ -290,16 +290,16 @@ function setDeviceActive(mac,macArray,arraystdout) {
     if (macArray.indexOf(mac) != -1) {
         let realmac = arraystdout[4];
         let ip_address = arraystdout[0];
-        let actualstatus = arraystdout[5];              
+        let actualstatus = arraystdout[5];
         let lastupdate = getActualDateTime();
-    
+
         adapter.setState(mac + '.last_time_seen_active' , lastupdate   || '-1'       , true);
         adapter.setState(mac + '.ip_address'            , ip_address   || 'undefined', true);
         adapter.setState(mac + '.mac'                   , realmac      || 'undefined', true);
         adapter.setState(mac + '.last_status'           , actualstatus || 'undefined', true);
-        adapter.setState(mac + '.active'                , true         || 'undefined', true);                    
-    
-        adapter.log.debug('Device ' + mac + ' is active'); 
+        adapter.setState(mac + '.active'                , true         || 'undefined', true);
+
+        adapter.log.debug('Device ' + mac + ' is active');
     }
 }
 
@@ -317,13 +317,13 @@ function checkActiveDevices(macArray) {
 function checkDevice(mac) {
     adapter.log.debug('Check ' + mac + ' if still active');
     adapter.getState(mac + '.active', function (err, state) {
-        if (state) {                    
+        if (state) {
             if (state.val == true) {
                 adapter.getState(mac + '.last_time_seen_active', function (err, updatestate) {
                     if (updatestate) {
-                        let date = new Date(); 
+                        let date = new Date();
                         let timenow = date.getTime();
-                        
+
                         let timebefore = updatestate.lc;
                         adapter.log.debug('Last Time Device Changed: ' + timebefore + ', now: ' + timenow);
                         let timeelapsed = timenow - timebefore;
@@ -331,32 +331,32 @@ function checkDevice(mac) {
                             let timebuffer = timenow - lastTimeUpdateDevices;
                             timeelapsed = timeelapsed - timebuffer;
                         }
-                    
+
                         if (timeelapsed > adapter.config.active_interval) {
                             adapter.setState(mac + '.active', false);
                             adapter.setState(mac + '.last_status', 'offline');
                             adapter.log.debug('Device ' + mac + ' is not active anymore');
                         }
                     }
-                });    
+                });
             }
         }
-    });  
+    });
 }
 
 function startCheckActiveDevices(hosts) {
     if (stopTimer) clearTimeout(stopTimer);
-    adapter.log.debug('Start check if Device still active'); 
+    adapter.log.debug('Start check if Device still active');
     if (!isStopping)  {
-        checkActiveDevices(hosts); 
+        checkActiveDevices(hosts);
         setTimeout(function () {
             startCheckActiveDevices(hosts);
         }, 30000);
-    };         
+    };
 }
 
 function setLastUpdateTime() {
-    let date = new Date(); 
+    let date = new Date();
     lastTimeUpdateDevices = date.getTime();
 }
 
@@ -395,7 +395,7 @@ function startUpdateDevicesSSH2(hosts) {
         stop();
         return;
     }
-  
+
     conn.on('ready', function() {
         adapter.log.info('SSH Connection to Router is ready, starting Device Checking');
         stopExecute = false;
@@ -423,23 +423,23 @@ function updateDeviceSSH2(macArray) {
             stream.on('data', function(data) {
                 let arraystdout = String(data);
                 arraystdout = arraystdout.split(" ");
-                if (arraystdout.length == 6) {                                
-                    let mac = arraystdout[4].replace(/:/g,"");  
+                if (arraystdout.length == 6) {
+                    let mac = arraystdout[4].replace(/:/g,"");
                     mac = mac.toLowerCase();
                     setDeviceActive(mac,macArray,arraystdout);
                 }
                 adapter.log.debug('STDOUT: ' + data);
             }).stderr.on('data', function(data) {
                 adapter.log.debug('STDERR: ' + data);
-            });          
-        });          
-    } catch (error) {        
+            });
+        });
+    } catch (error) {
         if (String(error) === 'Error: Not connected') {
             adapter.log.error('SSH2 is not connected, try new Connection in 90s');
             stopExecute = true;
             setTimeout(function () {
                 restartSSH2(macArray);
-            }, 90000);             
+            }, 90000);
         } else {
             adapter.log.error(error);
             stopExecute = true;
@@ -469,19 +469,19 @@ function getActiveDevices(hosts) {
         }
     }
 
-    if (!hosts.length) { 
+    if (!hosts.length) {
         adapter.log.error('No Devices to watch found or no Devices set with active');
         stop();
         return;
     }
 
-    let checkIP = validateIPaddress(adapter.config.asus_ip);
-    if (checkIP == false) {
-        adapter.log.error('The IP-Address ' + adapter.config.asus_ip + ' is no valid IP-Address');
+    let checkRouterAddress = validateIPaddress(adapter.config.asus_ip) || validateHostname(adapter.config.asus_ip);
+    if (!checkRouterAddress) {
+        adapter.log.error('The Server-Address ' + adapter.config.asus_ip + ' is neither a valid IP-Address or Hostname');
         stop();
-        return;        
+        return;
     }
-    
+
     if (adapter.config.keyfile != "") {
         fs.stat(adapter.config.keyfile, function(err) {
             if (err) {
@@ -491,8 +491,8 @@ function getActiveDevices(hosts) {
                     adapter.log.error('No Key File and No Password set for the SSH Connection');
                     stop();
                     return;
-                }      
-                useKeyFile = false;          
+                }
+                useKeyFile = false;
             } else {
                 useKeyFile = true;
             }
@@ -502,29 +502,35 @@ function getActiveDevices(hosts) {
             adapter.log.error('No Key File and No Password set for the SSH Connection');
             stop();
             return;
-        }    
+        }
         useKeyFile = false;
     }
 
     // polling mininum 5 Seconds for SSH2
-    if (adapter.config.interval < 5000) { adapter.config.interval = 5000; }  
-    
+    if (adapter.config.interval < 5000) { adapter.config.interval = 5000; }
+
     setTimeout(function () {
         startUpdateDevicesSSH2(hosts);
-    }, 5000);    
-    
+    }, 5000);
+
     setTimeout(function () {
         startCheckActiveDevices(hosts);
-    }, 30000);       
+    }, 30000);
 }
 
 function validateIPaddress(inputText) {
     const ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    if(inputText.match(ipformat)) {
-        return true;
-    } else {
-        return false;
-    }
+    return !!inputText.match(ipformat);
+}
+
+/**
+ * Validates if the input is a hostname checked by regex
+ * @param {string} inputText
+ * @returns {boolean}
+ */
+function validateHostname(inputText) {
+    const validHostnameRegex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/;
+    return !!inputText.match(validHostnameRegex);
 }
 
 function main() {
@@ -553,4 +559,4 @@ if (module && module.parent) {
 } else {
     // or start the instance directly
     startAdapter();
-} 
+}
