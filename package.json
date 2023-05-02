@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/mcdhrts/ioBroker.asuswrt#readme",
   "dependencies": {
-    "ssh2": "^0.6.0",
+    "ssh2": "^1.4.0",
     "@iobroker/adapter-core": "^1.0.3"
   },
   "devDependencies": {
