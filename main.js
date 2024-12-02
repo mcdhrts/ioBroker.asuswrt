@@ -197,7 +197,7 @@ function syncConfig(callback) {
                 id = configToDelete[e].replace(/:/g,"");
                 id = id.toLowerCase();
                 tasks.push({
-                    type: 'deleteState',
+                    type: 'delObjekt',
                     id:   id
                 });
             }
@@ -241,8 +241,8 @@ function processTasks(tasks, callback) {
                     setImmediate(processTasks, tasks, callback);
                 }
             });
-        } else  if (task.type === 'deleteState') {
-            adapter.deleteState('', host, task.id, function (/* err */) {
+        } else  if (task.type === 'delObjekt') {
+            adapter.delObjekt('', host, task.id, function (/* err */) {
                 if (timeout) {
                     clearTimeout(timeout);
                     timeout = null;
