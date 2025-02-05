@@ -71,68 +71,80 @@ process.on('SIGINT', function () {
 });
 
 function createState(name, mac, callback) {
-    let id = mac.replace(/:/g,"");
-    id = id.toLowerCase();
+    let id = mac.replace(/:/g,"").toLowerCase();
 
-    adapter.createState('', id, 'last_time_seen_active', {
-        name: name || mac,
-        def: -1,
-        type: 'string',
-        read: 'true',
-        write: 'true',
-        role: 'value',
-        desc: 'last update'
-    }, {
-        mac: id
-    }, callback);
+    const states = [
+        {
+            id: 'last_time_seen_active',
+            common: {
+                name: name || mac,
+                def: '-1',
+                type: 'string',
+                read: true,
+                write: true,
+                role: 'value',
+                desc: 'last update'
+            }
+        },
+        {
+            id: 'ip_address',
+            common: {
+                name: name || mac,
+                def: '',
+                type: 'string',
+                read: true,
+                write: true,
+                role: 'value',
+                desc: 'Last known IP Address'
+            }
+        },
+        {
+            id: 'mac',
+            common: {
+                name: name || mac,
+                def: mac,
+                type: 'string',
+                read: true,
+                write: true,
+                role: 'value',
+                desc: 'MAC address'
+            }
+        },
+        {
+            id: 'last_status',
+            common: {
+                name: name || mac,
+                def: '',
+                type: 'string',
+                read: true,
+                write: true,
+                role: 'value',
+                desc: 'last known status'
+            }
+        },
+        {
+            id: 'active',
+            common: {
+                name: name || mac,
+                def: false,
+                type: 'boolean',
+                read: true,
+                write: true,
+                role: 'value',
+                desc: 'Device Active'
+            }
+        }
+    ];
 
-    adapter.createState('', id, 'ip_address', {
-        name: name || mac,
-        def: '',
-        type: 'string',
-        read: 'true',
-        write: 'true',
-        role: 'value',
-        desc: 'Last known IP Address'
-    }, {
-        mac: id
-    }, callback);
-
-    adapter.createState('', id, 'mac', {
-        name: name || mac,
-        def: mac,
-        type: 'string',
-        read: 'true',
-        write: 'true',
-        role: 'value',
-        desc: 'MAC address'
-    }, {
-        mac: id
-    }, callback);
-
-    adapter.createState('', id, 'last_status', {
-        name: name || mac,
-        def: '',
-        type: 'string',
-        read: 'true',
-        write: 'true',
-        role: 'value',
-        desc: 'last known status'
-    }, {
-        mac: id
-    }, callback);
-
-    adapter.createState('', id, 'active', {
-        name: name || mac,
-        def: 'false',
-        type: 'boolean',
-        read: 'true',
-        write: 'true',
-        role: 'value',
-        desc: 'Device Active'
-    }, {
-        mac: id
-    }, callback);
+    states.forEach(state => {
+        adapter.setObjectNotExists(id + '.' + state.id, {
+            type: 'state',
+            common: state.common,
+            native: {
+                mac: id
+            }
+        }, callback);
+    });
 
     adapter.log.debug(id + ' generated ' + mac);
 }
@@ -198,7 +210,7 @@ function syncConfig(callback) {
                 id = id.toLowerCase();
                 tasks.push({
                     type: 'delObjekt',
-                    id:   id
+                    id: id
                 });
             }
         }
@@ -241,8 +253,8 @@ function processTasks(tasks, callback) {
                     setImmediate(processTasks, tasks, callback);
                 }
             });
-        } else  if (task.type === 'delObjekt') {
-            adapter.delObjekt('', host, task.id, function (/* err */) {
+        } else if (task.type === 'delObjekt') {
+            adapter.delObject(task.id, function (/* err */) {
                 if (timeout) {
                     clearTimeout(timeout);
                     timeout = null;
