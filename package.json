@@ -16,7 +16,8 @@
   "keywords": [
     "asus",
     "asuswrt",
-    "iobroker"
+    "iobroker",
+    "ioBroker"
   ],
   "author": {
     "name": "mcdhrts",
@@ -29,13 +30,16 @@
   "homepage": "https://github.com/mcdhrts/ioBroker.asuswrt#readme",
   "dependencies": {
     "ssh2": "^1.4.0",
-    "@iobroker/adapter-core": "^1.0.3"
+    "@iobroker/adapter-core": "^3.3.1"
   },
   "devDependencies": {
     "gulp": "^5.0.0",
     "mocha": "^10.2.0",
     "chai": "^4.1.2",
-    "@iobroker/testing": "^4.1.0"
+    "@iobroker/testing": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "directories": {
     "lib": "lib",

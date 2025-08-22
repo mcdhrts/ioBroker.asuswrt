@@ -63,18 +63,21 @@
     "authors": [
         "mcdhrts"
     ],
-    "license": "MIT",
-    "platform": "Javascript/Node.js",
-    "mode": "daemon",
-    "compact": true,
-    "messagebox": true,
-		"enabled": true,
-    "readme": "https://github.com/mcdhrts/ioBroker.asuswrt/blob/master/README.md",
     "loglevel": "info",
-    "restartAdapters": ["asuswrt"],        
+    "restartAdapters": [],        
     "keywords": ["asus", "asuswrt"],
     "icon": "asuswrt.png",
-    "materialize": true,
+    "adminUI": {
+      "config": {}
+    },
+    "connectionType": "local",
+    "dataSource": "cloud",
+    "dependencies": [],
+    "globalDependencies": {
+      "admin": "^7.6.17",
+      "js-controller": "^6.0.11"
+    },
+    "tier": 0,
     "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker.asuswrt/master/admin/asuswrt.png",
     "type": "hardware"
   },
