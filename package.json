@@ -30,20 +30,25 @@
   "homepage": "https://github.com/mcdhrts/ioBroker.asuswrt#readme",
   "dependencies": {
     "ssh2": "^1.4.0",
-    "@iobroker/adapter-core": "^3.3.1"
+    "@iobroker/adapter-core": "^3.3.2"
   },
   "devDependencies": {
-    "gulp": "^5.0.0",
     "mocha": "^10.2.0",
     "chai": "^4.1.2",
-    "@iobroker/testing": "^5.0.4"
+    "@iobroker/testing": "^5.1.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "directories": {
     "lib": "lib",
     "test": "test"
   },
+  "files": [
+    "admin/",
+    "main.js",
+    "io-package.json",
+    "LICENSE"
+  ],
   "readmeFilename": "README.md"
 }

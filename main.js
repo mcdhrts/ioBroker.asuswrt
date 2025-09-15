@@ -71,87 +71,91 @@ process.on('SIGINT', function () {
 });
 
 function createState(name, mac, callback) {
-    let id = mac.replace(/:/g,"").toLowerCase();
+    let id = mac.replace(/:/g, "").toLowerCase();
 
-    const states = [
-        {
-            id: 'last_time_seen_active',
-            common: {
-                name: name || mac,
-                def: '-1',
-                type: 'string',
-                read: true,
-                write: true,
-                role: 'value',
-                desc: 'last update'
-            }
+    adapter.setObjectNotExists(id, {
+        type: 'device',
+        common: {
+            name: name || mac
         },
-        {
-            id: 'ip_address',
-            common: {
-                name: name || mac,
-                def: '',
-                type: 'string',
-                read: true,
-                write: true,
-                role: 'value',
-                desc: 'Last known IP Address'
-            }
-        },
-        {
-            id: 'mac',
-            common: {
-                name: name || mac,
-                def: mac,
-                type: 'string',
-                read: true,
-                write: true,
-                role: 'value',
-                desc: 'MAC address'
-            }
-        },
-        {
-            id: 'last_status',
-            common: {
-                name: name || mac,
-                def: '',
-                type: 'string',
-                read: true,
-                write: true,
-                role: 'value',
-                desc: 'last known status'
-            }
-        },
-        {
-            id: 'active',
-            common: {
-                name: name || mac,
-                def: false,
-                type: 'boolean',
-                read: true,
-                write: true,
-                role: 'value',
-                desc: 'Device Active'
-            }
+        native: {
+            mac: mac
         }
-    ];
-
-    states.forEach(state => {
-        adapter.setObjectNotExists(id + '.' + state.id, {
-            type: 'state',
-            common: state.common,
-            native: {
-                mac: id
+    }, () => {
+        const states = [
+            {
+                id: 'last_time_seen_active',
+                common: {
+                    name: name || mac,
+                    def: '-',
+                    type: 'string',
+                    read: true,
+                    write: false,
+                    role: 'value',
+                    desc: 'last update'
+                }
+            },
+            {
+                id: 'ip_address',
+                common: {
+                    name: name || mac,
+                    def: '',
+                    type: 'string',
+                    read: true,
+                    write: false,
+                    role: 'value',
+                    desc: 'Last known IP Address'
+                }
+            },
+            {
+                id: 'mac',
+                common: {
+                    name: name || mac,
+                    def: mac,
+                    type: 'string',
+                    read: true,
+                    write: false,
+                    role: 'value',
+                    desc: 'MAC address'
+                }
+            },
+            {
+                id: 'last_status',
+                common: {
+                    name: name || mac,
+                    def: '',
+                    type: 'string',
+                    read: true,
+                    write: false,
+                    role: 'value',
+                    desc: 'last known status'
+                }
+            },
+            {
+                id: 'active',
+                common: {
+                    name: name || mac,
+                    def: false,
+                    type: 'boolean',
+                    read: true,
+                    write: false,
+                    role: 'value',
+                    desc: 'Device Active'
+                }
             }
-        }, callback);
-    });
+        ];
 
-    adapter.log.debug(id + ' generated ' + mac);
-}
+        states.forEach(state => {
+            adapter.setObjectNotExists(id + '.' + state.id, {
+                type: 'state',
+                common: state.common,
+                native: {
+                    mac: id
+                }
+            }, callback);
+        });
 
-function addState(name, mac, callback) {
-    adapter.getObject(host, function (err, obj) {
-        createState(name, mac, callback);
+        adapter.log.debug(id + ' generated ' + mac);
     });
 }
 
@@ -209,7 +213,7 @@ function syncConfig(callback) {
                 id = configToDelete[e].replace(/:/g,"");
                 id = id.toLowerCase();
                 tasks.push({
-                    type: 'delObjekt',
+                    type: 'delObject',
                     id: id
                 });
             }
@@ -221,7 +225,7 @@ function syncConfig(callback) {
                 for (var r = 0; r < adapter.config.devices.length; r++) {
                     if (configToAdd.indexOf(adapter.config.devices[r].mac) !== -1) {
                         count++;
-                        addState(adapter.config.devices[r].name, adapter.config.devices[r].mac, function () {
+                        createState(adapter.config.devices[r].name, adapter.config.devices[r].mac, function () {
                             if (!--count && callback) {
                                 callback();
                             }

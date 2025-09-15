@@ -2,39 +2,39 @@
   "common": {
     "name": "asuswrt",
     "version": "1.0.1",
-    "news": { 
+    "news": {
       "1.0.1": {
         "en": "Add Support for Compact Mode",
         "de": "Compact Mode wird unterstützt"
-      },          
+      },
       "1.0.0": {
         "en": "SSH-Key File, Polling down to 5s, Remove SIMPLE-SSH, Remove Admin V2 Support",
         "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt"
-      },           
+      },
       "0.3.1": {
         "en": "Changed Test Files, no features added",
         "de": "Test Dateien geändert, keine neuen Funktionen hinzugefügt"
-      },         
+      },
       "0.3.0": {
         "en": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s",
         "de": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s"
-      },         
+      },
       "0.2.1": {
         "en": "Update Readme and add missing translations",
         "de": "Update Readme and add missing translations"
-      },          
+      },
       "0.2.0": {
         "en": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive",
         "de": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive"
-      },         
+      },
       "0.1.2": {
         "en": "Update wrong dependencies",
         "de": "Update wrong dependencies"
-      },          
+      },
       "0.1.1": {
         "en": "Update Readme",
         "de": "Update Readme"
-      },      
+      },
       "0.1.0": {
         "en": "first complete checked and running Version",
         "de": "first complete checked and running Version"
@@ -44,7 +44,6 @@
         "de": "first beta"
       }
     },
-    "title": "ASUSWRT",
     "titleLang": {
       "en": "ASUSWRT",
       "de": "ASUSWRT",
@@ -61,23 +60,37 @@
       "de": "Finde aktive Geräte in ASUS Routers mit ASUSWRT für ioBroker"
     },
     "authors": [
-        "mcdhrts"
+      "mcdhrts"
     ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "javascript",
     "loglevel": "info",
-    "restartAdapters": [],        
-    "keywords": ["asus", "asuswrt"],
+    "mode": "daemon",
+    "restartAdapters": [],
+    "keywords": [
+      "asus",
+      "asuswrt"
+    ],
     "icon": "asuswrt.png",
     "adminUI": {
-      "config": {}
+      "config": "html"
     },
     "connectionType": "local",
-    "dataSource": "cloud",
-    "dependencies": [],
-    "globalDependencies": {
-      "admin": "^7.6.17",
-      "js-controller": "^6.0.11"
-    },
-    "tier": 0,
+    "dataSource": "poll",
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.19"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.17"
+      }
+    ],
+    "tier": 2,
     "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker.asuswrt/master/admin/asuswrt.png",
     "type": "hardware"
   },
