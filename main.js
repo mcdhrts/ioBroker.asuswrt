@@ -70,7 +70,7 @@ process.on('SIGINT', function () {
     if (timer) clearTimeout(timer);
 });
 
-function createState(name, mac, callback) {
+function createDevice(name, mac, callback) {
     let id = mac.replace(/:/g, "").toLowerCase();
 
     adapter.setObjectNotExists(id, {
@@ -225,7 +225,7 @@ function syncConfig(callback) {
                 for (var r = 0; r < adapter.config.devices.length; r++) {
                     if (configToAdd.indexOf(adapter.config.devices[r].mac) !== -1) {
                         count++;
-                        createState(adapter.config.devices[r].name, adapter.config.devices[r].mac, function () {
+                        createDevice(adapter.config.devices[r].name, adapter.config.devices[r].mac, function () {
                             if (!--count && callback) {
                                 callback();
                             }

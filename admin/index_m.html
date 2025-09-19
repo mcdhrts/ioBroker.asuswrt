@@ -14,13 +14,28 @@
 
 
 <style>
-    .table_header {
-        background-color: blue;
-        color: white;
+    /* Style for small Screens */
+    @media screen and (max-width: 768px) {
+        .table_header {
+            background-color: blue;
+            color: white;
+        }
+        .ip {
+            width: 150px;
+            text-align: right;
+        }
     }
-    .ip {
-        width: 150px;
-        text-align: right;
+
+    /* Style for very small Screens */
+    @media screen and (max-width: 600px) {
+        .table_header {
+            background-color: blue;
+            color: white;
+        }
+        .ip {
+            width: 150px;
+            text-align: right;
+        }
     }
 </style>
 <!-- you have to define 2 functions in the global scope: -->

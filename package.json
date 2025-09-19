@@ -29,13 +29,13 @@
   },
   "homepage": "https://github.com/mcdhrts/ioBroker.asuswrt#readme",
   "dependencies": {
-    "ssh2": "^1.4.0",
+    "ssh2": "^1.17.0",
     "@iobroker/adapter-core": "^3.3.2"
   },
   "devDependencies": {
     "mocha": "^10.2.0",
     "chai": "^4.1.2",
-    "@iobroker/testing": "^5.1.0"
+    "@iobroker/testing": "^5.1.1"
   },
   "engines": {
     "node": ">=18"
