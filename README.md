@@ -22,9 +22,12 @@ You can find a list from Asus which Router DO NOT use ASUSWRT here: https://even
 
 You must activate and allow SSH Connections in your Router Settings
 
-You need at least NodeJS V6 and Admin V3
+You need at least:
+* js-controller >= 6.0.11
+* admin >= 7.6.17
+* Node.js >= 18.x
 
-If you need Admin V2 install last supported Version 0.3.1
+For older ioBroker versions, install version 0.3.1
 
 ## Setup
 * Asus Router IP-Address (Mandatory)
