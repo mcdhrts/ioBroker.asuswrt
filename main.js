@@ -6,7 +6,7 @@
 
 //SSH2
 var Client = require('ssh2').Client;
-var conn = new Client();
+var conn = null;
 
 //OTHER
 const utils = require('@iobroker/adapter-core');
@@ -38,6 +38,11 @@ function startAdapter(options) {
             if (timer) {
                 clearInterval(timer);
                 timer = 0;
+            }
+            if (conn) {
+                conn.removeAllListeners();
+                conn.end();
+                conn = null;
             }
             isStopping = true;
             callback && callback();
@@ -257,7 +262,7 @@ function processTasks(tasks, callback) {
                     setImmediate(processTasks, tasks, callback);
                 }
             });
-        } else if (task.type === 'delObjekt') {
+        } else if (task.type === 'delObject') {
             adapter.delObject(task.id, function (/* err */) {
                 if (timeout) {
                     clearTimeout(timeout);
@@ -376,38 +381,39 @@ function setLastUpdateTime() {
     lastTimeUpdateDevices = date.getTime();
 }
 
+function createSSHConnection() {
+    if (conn) {
+        conn.removeAllListeners();
+        conn.end();
+    }
+    conn = new Client();
+    return conn;
+}
+
 function startUpdateDevicesSSH2(hosts) {
+    conn = createSSHConnection();
+
     try {
+        const connectionConfig = {
+            host: adapter.config.asus_ip,
+            port: Number(adapter.config.ssh_port),
+            username: adapter.config.asus_user,
+            keepaliveInterval: 60000,
+            readyTimeout: 30000
+        };
+
         if (useKeyFile) {
+            connectionConfig.privateKey = fs.readFileSync(adapter.config.keyfile);
             if (adapter.config.keyfile_passphrase != "") {
-                conn.connect({
-                    host: adapter.config.asus_ip,
-                    port: Number(adapter.config.ssh_port),
-                    username: adapter.config.asus_user,
-                    privateKey: fs.readFileSync(adapter.config.keyfile),
-                    passphrase: adapter.config.keyfile_passphrase,
-                    keepaliveInterval: 60000,
-                });
-            } else {
-                conn.connect({
-                    host: adapter.config.asus_ip,
-                    port: Number(adapter.config.ssh_port),
-                    username: adapter.config.asus_user,
-                    privateKey: fs.readFileSync(adapter.config.keyfile),
-                    keepaliveInterval: 60000,
-                });
+                connectionConfig.passphrase = adapter.config.keyfile_passphrase;
             }
         } else {
-            conn.connect({
-                host: adapter.config.asus_ip,
-                port: Number(adapter.config.ssh_port),
-                username: adapter.config.asus_user,
-                password: adapter.config.asus_pw,
-                keepaliveInterval: 60000,
-            });
+            connectionConfig.password = adapter.config.asus_pw;
         }
+
+        conn.connect(connectionConfig);
     } catch (error) {
-        adapter.log.error(error);
+        adapter.log.error('Failed to connect to SSH: ' + error.message);
         stop();
         return;
     }
@@ -416,6 +422,33 @@ function startUpdateDevicesSSH2(hosts) {
         adapter.log.info('SSH Connection to Router is ready, starting Device Checking');
         stopExecute = false;
         startCommandSSH2(hosts);
+    });
+
+    conn.on('error', function(err) {
+        adapter.log.error('SSH connection error: ' + err.message);
+        stopExecute = true;
+        if (!isStopping) {
+            adapter.log.info('Attempting to reconnect in 90 seconds...');
+            setTimeout(function() {
+                restartSSH2(hosts);
+            }, 90000);
+        }
+    });
+
+    conn.on('close', function() {
+        adapter.log.info('SSH connection closed');
+        if (!isStopping && !stopExecute) {
+            adapter.log.info('Connection closed unexpectedly, attempting to reconnect in 90 seconds...');
+            stopExecute = true;
+            setTimeout(function() {
+                restartSSH2(hosts);
+            }, 90000);
+        }
+    });
+
+    conn.on('timeout', function() {
+        adapter.log.error('SSH connection timeout');
+        conn.end();
     });
 }
 
@@ -464,9 +497,33 @@ function updateDeviceSSH2(macArray) {
 }
 
 function restartSSH2(hosts) {
-    conn = null;
-    conn = new Client();
     startUpdateDevicesSSH2(hosts);
+}
+
+function checkKeyFile(callback) {
+    if (!adapter.config.keyfile || adapter.config.keyfile === "") {
+        if (adapter.config.asus_pw === "") {
+            adapter.log.error('No Key File and No Password set for the SSH Connection');
+            return callback(new Error('No authentication method configured'));
+        }
+        useKeyFile = false;
+        return callback(null);
+    }
+
+    fs.stat(adapter.config.keyfile, function(err) {
+        if (err) {
+            adapter.log.warn('Key File ' + adapter.config.keyfile + ' not found: ' + err.message);
+            adapter.log.info('Attempting to use password instead');
+            if (adapter.config.asus_pw === "") {
+                adapter.log.error('No Key File and No Password set for the SSH Connection');
+                return callback(new Error('No valid authentication method'));
+            }
+            useKeyFile = false;
+            return callback(null);
+        }
+        useKeyFile = true;
+        callback(null);
+    });
 }
 
 function getActiveDevices(hosts) {
@@ -477,9 +534,14 @@ function getActiveDevices(hosts) {
         for (var i = 0; i < adapter.config.devices.length; i++) {
             if (adapter.config.devices[i].mac.length > 11) {
                 if (adapter.config.devices[i].active) {
-                    let mac = adapter.config.devices[i].mac.replace(/:/g,"");
-                    mac = mac.toLowerCase();
-                    hosts.push(mac);
+                    try {
+                        let mac = sanitizeMac(adapter.config.devices[i].mac);
+                        mac = mac.replace(/:/g,"");
+                        mac = mac.toLowerCase();
+                        hosts.push(mac);
+                    } catch (err) {
+                        adapter.log.warn('Skipping invalid MAC: ' + err.message);
+                    }
                 }
             }
         }
@@ -498,40 +560,23 @@ function getActiveDevices(hosts) {
         return;
     }
 
-    if (adapter.config.keyfile != "") {
-        fs.stat(adapter.config.keyfile, function(err) {
-            if (err) {
-                adapter.log.info('Key File ' + adapter.config.keyfile + 'not found, try to use Password instead');
-                adapter.log.info('File Error Message: ' + err);
-                if (adapter.config.asus_pw === "") {
-                    adapter.log.error('No Key File and No Password set for the SSH Connection');
-                    stop();
-                    return;
-                }
-                useKeyFile = false;
-            } else {
-                useKeyFile = true;
-            }
-        })
-    } else {
-        if (adapter.config.asus_pw === "") {
-            adapter.log.error('No Key File and No Password set for the SSH Connection');
-            stop();
-            return;
-        }
-        useKeyFile = false;
-    }
-
     // polling mininum 5 Seconds for SSH2
     if (adapter.config.interval < 5000) { adapter.config.interval = 5000; }
 
-    setTimeout(function () {
-        startUpdateDevicesSSH2(hosts);
-    }, 5000);
+    checkKeyFile(function(err) {
+        if (err) {
+            stop();
+            return;
+        }
 
-    setTimeout(function () {
-        startCheckActiveDevices(hosts);
-    }, 30000);
+        setTimeout(function () {
+            startUpdateDevicesSSH2(hosts);
+        }, 5000);
+
+        setTimeout(function () {
+            startCheckActiveDevices(hosts);
+        }, 30000);
+    });
 }
 
 function validateIPaddress(inputText) {
@@ -549,9 +594,79 @@ function validateHostname(inputText) {
     return !!inputText.match(validHostnameRegex);
 }
 
+function sanitizeMac(mac) {
+    const sanitized = mac.replace(/[^0-9A-Fa-f:]/g, '');
+    const macRegex = /^([0-9A-Fa-f]{2}[:]){5}([0-9A-Fa-f]{2})$/;
+    if (!macRegex.test(sanitized)) {
+        throw new Error('Invalid MAC address format: ' + mac);
+    }
+    return sanitized;
+}
+
+function validateConfig() {
+    const errors = [];
+
+    // Validate IP/hostname
+    if (!adapter.config.asus_ip) {
+        errors.push('Router IP/hostname is required');
+    } else if (!validateIPaddress(adapter.config.asus_ip) && !validateHostname(adapter.config.asus_ip)) {
+        errors.push('Invalid router address: ' + adapter.config.asus_ip);
+    }
+
+    // Validate user
+    if (!adapter.config.asus_user) {
+        errors.push('Router username is required');
+    }
+
+    // Validate authentication
+    if (!adapter.config.keyfile && !adapter.config.asus_pw) {
+        errors.push('Either password or SSH key file must be provided');
+    }
+
+    // Validate port
+    const port = parseInt(adapter.config.ssh_port, 10);
+    if (isNaN(port) || port < 1 || port > 65535) {
+        errors.push('Invalid SSH port: ' + adapter.config.ssh_port);
+    }
+
+    // Validate MAC addresses
+    if (adapter.config.devices) {
+        const macRegex = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
+        for (let idx = 0; idx < adapter.config.devices.length; idx++) {
+            const device = adapter.config.devices[idx];
+            if (device.mac && !macRegex.test(device.mac)) {
+                errors.push('Invalid MAC address for device ' + (idx + 1) + ': ' + device.mac);
+            }
+        }
+    }
+
+    // Validate intervals
+    const interval = parseInt(adapter.config.interval, 10);
+    if (isNaN(interval) || interval < 5000) {
+        errors.push('Polling interval must be at least 5000ms');
+    }
+
+    const activeInterval = parseInt(adapter.config.active_interval, 10);
+    if (isNaN(activeInterval) || activeInterval < 60000) {
+        errors.push('Active interval must be at least 60000ms');
+    }
+
+    return errors;
+}
+
 function main() {
     if (!adapter.config.devices) {
         adapter.log.info('No Devices to watch configured');
+        stop();
+        return;
+    }
+
+    const validationErrors = validateConfig();
+    if (validationErrors.length > 0) {
+        adapter.log.error('Configuration validation failed:');
+        validationErrors.forEach(function(err) {
+            adapter.log.error('  - ' + err);
+        });
         stop();
         return;
     }
