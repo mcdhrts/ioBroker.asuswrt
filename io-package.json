@@ -30,18 +30,6 @@
       "0.1.2": {
         "en": "Update wrong dependencies",
         "de": "Update wrong dependencies"
-      },
-      "0.1.1": {
-        "en": "Update Readme",
-        "de": "Update Readme"
-      },
-      "0.1.0": {
-        "en": "first complete checked and running Version",
-        "de": "first complete checked and running Version"
-      },
-      "0.0.1": {
-        "en": "first beta",
-        "de": "first beta"
       }
     },
     "titleLang": {
@@ -66,9 +54,10 @@
       "type": "free",
       "license": "MIT"
     },
-    "platform": "javascript",
+    "platform": "Javascript/Node.js",
     "loglevel": "info",
     "mode": "daemon",
+    "compact": true,
     "restartAdapters": [],
     "keywords": [
       "asus",
@@ -82,7 +71,7 @@
     "dataSource": "poll",
     "dependencies": [
       {
-        "js-controller": ">=5.0.19"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [
