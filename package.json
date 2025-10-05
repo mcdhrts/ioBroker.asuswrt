@@ -1,12 +1,11 @@
 {
   "name": "iobroker.asuswrt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "find active devices in asus wrt routers for ioBroker",
   "main": "main.js",
   "scripts": {
-    "test": "npm run test:package && npm run test:unit",
+    "test": "npm run test:package && npm run test:integration",
     "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit",
     "test:integration": "mocha test/integration --exit"
   },
   "repository": {

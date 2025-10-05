@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "news": {
+      "1.0.2": {
+        "en": "Fix admin UI 404 error, update requirements documentation, improve integration tests, update dependencies",
+        "de": "Admin UI 404 Fehler behoben, Anforderungsdokumentation aktualisiert, Integrationstests verbessert, Abhängigkeiten aktualisiert"
+      },
       "1.0.1": {
         "en": "Add Support for Compact Mode",
         "de": "Compact Mode wird unterstützt"

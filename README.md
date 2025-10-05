@@ -56,6 +56,14 @@ For older ioBroker versions, install version 0.3.1
 
 ## Changelog
 
+### 1.0.2 (2025-10-05)
+* (mcdhrts) Fixed admin UI 404 error - renamed index_m.html to index.html
+* (mcdhrts) Updated requirements documentation to reflect current dependencies (js-controller >= 6.0.11, admin >= 7.6.17, Node.js >= 18.x)
+* (mcdhrts) Improved integration tests with proper test harness and configuration validation
+* (mcdhrts) Removed deprecated unit tests in favor of modern integration tests
+* (mcdhrts) Updated dependencies: ssh2 ^1.4.0 -> ^1.17.0, @iobroker/adapter-core ^3.3.1 -> ^3.3.2, @iobroker/testing ^5.0.4 -> ^5.1.1
+* (mcdhrts) Removed deprecated devDependencies: gulp, mocha, chai (now handled by @iobroker/testing)
+
 ### 1.0.1 (2019-03-22)
 * (mcdhrts) Add Support for Compact Mode
 
