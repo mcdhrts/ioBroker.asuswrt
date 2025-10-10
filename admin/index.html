@@ -65,10 +65,14 @@
             }
         }
 
-        devices    = settings.devices    || [];
-        onChange(false);
+        devices = settings.devices || [];
 
-        values2table('devices', devices, onChange);
+        // Initialize table after a short delay to ensure DOM is ready
+        setTimeout(function() {
+            values2table('devices', devices, onChange);
+        }, 0);
+
+        onChange(false);
     }
     // ... and the function save has to exist.
     // you have to make sure the callback is called with the settings object as first param!
