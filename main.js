@@ -523,14 +523,17 @@ function updateDeviceSSH2(macArray) {
       }
       stream
         .on("data", function (data) {
-          let arraystdout = String(data);
-          arraystdout = arraystdout.split(" ");
-          if (arraystdout.length == 6) {
-            let mac = arraystdout[4].replace(/:/g, "");
-            mac = mac.toLowerCase();
-            setDeviceActive(mac, macArray, arraystdout);
-          }
           adapter.log.debug(`STDOUT: ${data}`);
+          const lines = String(data).split("\n");
+          lines.forEach((line) => {
+            const macRegex = /([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}/;
+            const match = line.match(macRegex);
+            if (match) {
+              const mac = match[0].replace(/:/g, "").toLowerCase();
+              const arraystdout = line.split(" ");
+              setDeviceActive(mac, macArray, arraystdout);
+            }
+          });
         })
         .stderr.on("data", function (data) {
           adapter.log.debug(`STDERR: ${data}`);
