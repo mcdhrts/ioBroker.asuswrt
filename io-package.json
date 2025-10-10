@@ -3,6 +3,19 @@
     "name": "asuswrt",
     "version": "1.0.2",
     "news": {
+      "1.0.2": {
+        "en": "Fix admin UI 404 error, update requirements documentation, improve integration tests, update dependencies, add comprehensive translations",
+        "de": "Admin UI 404 Fehler behoben, Anforderungsdokumentation aktualisiert, Integrationstests verbessert, Abhängigkeiten aktualisiert, umfassende Übersetzungen hinzugefügt",
+        "ru": "Исправлена ошибка 404 в интерфейсе администратора, обновлена документация по требованиям, улучшены интеграционные тесты, обновлены зависимости, добавлены комплексные переводы",
+        "pt": "Corrigido erro 404 da interface de administração, atualizada documentação de requisitos, melhorados testes de integração, atualizadas dependências, adicionadas traduções abrangentes",
+        "nl": "Admin UI 404 fout opgelost, vereisten documentatie bijgewerkt, integratietests verbeterd, afhankelijkheden bijgewerkt, uitgebreide vertalingen toegevoegd",
+        "fr": "Correction de l'erreur 404 de l'interface d'administration, mise à jour de la documentation des exigences, amélioration des tests d'intégration, mise à jour des dépendances, ajout de traductions complètes",
+        "it": "Corretto errore 404 dell'interfaccia amministratore, aggiornata documentazione dei requisiti, migliorati test di integrazione, aggiornate dipendenze, aggiunte traduzioni complete",
+        "es": "Corregido error 404 de la interfaz de administración, actualizada documentación de requisitos, mejorados tests de integración, actualizadas dependencias, añadidas traducciones completas",
+        "pl": "Naprawiono błąd 404 interfejsu administratora, zaktualizowano dokumentację wymagań, ulepszono testy integracyjne, zaktualizowano zależności, dodano kompleksowe tłumaczenia",
+        "uk": "Виправлено помилку 404 інтерфейсу адміністратора, оновлено документацію вимог, покращено інтеграційні тести, оновлено залежності, додано комплексні переклади",
+        "zh-cn": "修复管理界面 404 错误，更新需求文档，改进集成测试，更新依赖项，添加全面翻译"
+      },
       "1.0.1": {
         "en": "Add Support for Compact Mode",
         "de": "Compact Mode wird unterstützt",
@@ -80,19 +93,6 @@
         "pl": "Możliwość użycia SSH2, który utrzymuje sesję SSH z routerem aktywną",
         "uk": "Можливість використання SSH2, який підтримує SSH-сеанс з маршрутизатором активним",
         "zh-cn": "可以使用 SSH2 保持与路由器的 SSH 会话活动"
-      },
-      "0.1.2": {
-        "en": "Update wrong dependencies",
-        "de": "Update wrong dependencies",
-        "ru": "Обновление неправильных зависимостей",
-        "pt": "Atualizar dependências incorretas",
-        "nl": "Onjuiste afhankelijkheden bijwerken",
-        "fr": "Mettre à jour les dépendances incorrectes",
-        "it": "Aggiornare dipendenze errate",
-        "es": "Actualizar dependencias incorrectas",
-        "pl": "Zaktualizuj nieprawidłowe zależności",
-        "uk": "Оновлення неправильних залежностей",
-        "zh-cn": "更新错误的依赖项"
       }
     },
     "titleLang": {

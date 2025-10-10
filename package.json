@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mcdhrts/ioBroker.asuswrt"
+    "url": "git+https://github.com/mcdhrts/ioBroker.asuswrt.git"
   },
   "keywords": [
     "asus",
