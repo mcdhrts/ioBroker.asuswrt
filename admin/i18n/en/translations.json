@@ -1,0 +1,21 @@
+{
+    "Main settings": "Main settings",
+    "ASUS Router Connection": "ASUS Router Connection",
+    "Router IP or Hostname": "Router IP or Hostname",
+    "SSH Port": "SSH Port",
+    "Authentication": "Authentication",
+    "Login User": "Login User",
+    "Login Password (if not using Key File)": "Login Password (if not using Key File)",
+    "Path to Private Key File (optional)": "Path to Private Key File (optional)",
+    "Passphrase for Key File (if encrypted)": "Passphrase for Key File (if encrypted)",
+    "Polling Configuration": "Polling Configuration",
+    "Polling interval (ms)": "Polling interval (ms)",
+    "Minimum: 5000ms (5 seconds)": "Minimum: 5000ms (5 seconds)",
+    "Time Device is not active anymore (ms)": "Time Device is not active anymore (ms)",
+    "Minimum: 60000ms (60 seconds / 1 minute)": "Minimum: 60000ms (60 seconds / 1 minute)",
+    "Devices to Monitor": "Devices to Monitor",
+    "Addresses to monitoring": "Addresses to monitoring",
+    "Name": "Name",
+    "MAC Address": "MAC Address",
+    "Enabled": "Enabled"
+}

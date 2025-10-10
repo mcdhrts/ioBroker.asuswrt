@@ -1,0 +1,21 @@
+{
+    "Main settings": "Configuraciones principales",
+    "ASUS Router Connection": "Conexión del router ASUS",
+    "Router IP or Hostname": "IP del router o nombre de host",
+    "SSH Port": "Puerto SSH",
+    "Authentication": "Autenticación",
+    "Login User": "Usuario de inicio de sesión",
+    "Login Password (if not using Key File)": "Contraseña de inicio de sesión (si no usa archivo de clave)",
+    "Path to Private Key File (optional)": "Ruta al archivo de clave privada (opcional)",
+    "Passphrase for Key File (if encrypted)": "Frase de contraseña para archivo de clave (si está cifrado)",
+    "Polling Configuration": "Configuración de polling",
+    "Polling interval (ms)": "Intervalo de polling (ms)",
+    "Minimum: 5000ms (5 seconds)": "Mínimo: 5000ms (5 segundos)",
+    "Time Device is not active anymore (ms)": "Tiempo hasta que el dispositivo ya no esté activo (ms)",
+    "Minimum: 60000ms (60 seconds / 1 minute)": "Mínimo: 60000ms (60 segundos / 1 minuto)",
+    "Devices to Monitor": "Dispositivos para monitorear",
+    "Addresses to monitoring": "Direcciones para monitoreo",
+    "Name": "Nombre",
+    "MAC Address": "Dirección MAC",
+    "Enabled": "Habilitado"
+}

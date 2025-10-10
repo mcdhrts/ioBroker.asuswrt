@@ -56,7 +56,7 @@
     "admin/**/*.js",
     "admin/**/*.json",
     "admin/**/*.json5",
-    "!admin/i18n/**",
+    "admin/i18n/**",
     "main.js",
     "io-package.json",
     "LICENSE"

@@ -1,0 +1,21 @@
+{
+    "Main settings": "主要设置",
+    "ASUS Router Connection": "ASUS 路由器连接",
+    "Router IP or Hostname": "路由器 IP 或主机名",
+    "SSH Port": "SSH 端口",
+    "Authentication": "认证",
+    "Login User": "登录用户",
+    "Login Password (if not using Key File)": "登录密码（如果不使用密钥文件）",
+    "Path to Private Key File (optional)": "私钥文件路径（可选）",
+    "Passphrase for Key File (if encrypted)": "密钥文件密码短语（如果已加密）",
+    "Polling Configuration": "轮询配置",
+    "Polling interval (ms)": "轮询间隔（毫秒）",
+    "Minimum: 5000ms (5 seconds)": "最小值：5000毫秒（5秒）",
+    "Time Device is not active anymore (ms)": "设备不再活动的时间（毫秒）",
+    "Minimum: 60000ms (60 seconds / 1 minute)": "最小值：60000毫秒（60秒 / 1分钟）",
+    "Devices to Monitor": "要监控的设备",
+    "Addresses to monitoring": "要监控的地址",
+    "Name": "名称",
+    "MAC Address": "MAC 地址",
+    "Enabled": "已启用"
+}

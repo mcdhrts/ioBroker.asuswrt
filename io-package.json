@@ -155,7 +155,8 @@
     ],
     "tier": 2,
     "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker.asuswrt/master/admin/asuswrt.png",
-    "type": "hardware"
+    "type": "hardware",
+    "i18n": true
   },
   "native": {
     "asus_ip": "x.x.x.x",

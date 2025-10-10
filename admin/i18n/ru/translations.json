@@ -1,0 +1,21 @@
+{
+    "Main settings": "Основные настройки",
+    "ASUS Router Connection": "Подключение к маршрутизатору ASUS",
+    "Router IP or Hostname": "IP маршрутизатора или имя хоста",
+    "SSH Port": "SSH порт",
+    "Authentication": "Аутентификация",
+    "Login User": "Пользователь",
+    "Login Password (if not using Key File)": "Пароль (если не используется файл ключа)",
+    "Path to Private Key File (optional)": "Путь к файлу приватного ключа (опционально)",
+    "Passphrase for Key File (if encrypted)": "Парольная фраза для файла ключа (если зашифрован)",
+    "Polling Configuration": "Конфигурация опроса",
+    "Polling interval (ms)": "Интервал опроса (мс)",
+    "Minimum: 5000ms (5 seconds)": "Минимум: 5000мс (5 секунд)",
+    "Time Device is not active anymore (ms)": "Время до признания устройства неактивным (мс)",
+    "Minimum: 60000ms (60 seconds / 1 minute)": "Минимум: 60000мс (60 секунд / 1 минута)",
+    "Devices to Monitor": "Устройства для мониторинга",
+    "Addresses to monitoring": "Адреса для мониторинга",
+    "Name": "Имя",
+    "MAC Address": "MAC адрес",
+    "Enabled": "Включено"
+}
