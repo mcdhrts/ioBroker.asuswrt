@@ -138,9 +138,11 @@
       "asuswrt"
     ],
     "icon": "asuswrt.png",
-    "adminUI": {
-      "config": "json"
+    "i18n": true,
+    "adminTab": {
+      "tab": "json"
     },
+    "materialize": true,
     "connectionType": "local",
     "dataSource": "poll",
     "dependencies": [

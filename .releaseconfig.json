@@ -1,9 +1,9 @@
 {
-    "plugins": {
-        "iobroker": true,
-        "license": true,
-        "manual-review": true,
-        "github": true,
-        "npm": true
-    }
+    "plugins": [
+        "iobroker",
+        "license",
+        "manual-review",
+        "github",
+        "npm"
+    ]
 }
