@@ -164,7 +164,9 @@
     "interval": "15000",
     "active_interval": "180000",
     "ssh_port": "22",
-    "keyfile": ""
+    "keyfile": "",
+    "keyfile_passphrase": "",
+    "devices": []
   },
   "objects": []
 }
