@@ -8,7 +8,8 @@
     "test:package": "mocha test/package --exit",
     "test:integration": "mocha test/integration --exit",
     "lint": "eslint .",
-    "release": "release-script"
+    "release": "release-script",
+    "translate": "translate-adapter"
   },
   "repository": {
     "type": "git",
