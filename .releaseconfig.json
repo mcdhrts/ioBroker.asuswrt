@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        {
+            "type": "github",
+            "enabled": true
+        },
+        {
+            "type": "npm",
+            "enabled": true
+        }
+    ]
+}

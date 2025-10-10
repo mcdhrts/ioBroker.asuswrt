@@ -1,0 +1,23 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "io-package.json"
+            ],
+            "url": "https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/schemas/io-package.json"
+        },
+        {
+            "fileMatch": [
+                "package.json"
+            ],
+            "url": "http://json.schemastore.org/package"
+        }
+    ],
+    "files.associations": {
+        "io-package.json": "json",
+        "package.json": "json"
+    },
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+}
