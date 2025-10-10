@@ -1,0 +1,352 @@
+{
+  "type": "tabs",
+  "items": {
+    "mainSettings": {
+      "type": "panel",
+      "label": {
+        "en": "Main settings",
+        "de": "Haupteinstellungen",
+        "ru": "Основные настройки",
+        "pt": "Configurações principais",
+        "nl": "Hoofdinstellingen",
+        "fr": "Paramètres principaux",
+        "it": "Impostazioni principali",
+        "es": "Configuraciones principales",
+        "pl": "Ustawienia główne",
+        "uk": "Основні налаштування",
+        "zh-cn": "主要设置"
+      },
+      "items": {
+        "_connectionHeader": {
+          "type": "header",
+          "text": {
+            "en": "ASUS Router Connection",
+            "de": "ASUS Router Verbindung",
+            "ru": "Подключение к маршрутизатору ASUS",
+            "pt": "Conexão com o roteador ASUS",
+            "nl": "ASUS Router Verbinding",
+            "fr": "Connexion au routeur ASUS",
+            "it": "Connessione router ASUS",
+            "es": "Conexión del router ASUS",
+            "pl": "Połączenie z routerem ASUS",
+            "uk": "Підключення до маршрутизатора ASUS",
+            "zh-cn": "ASUS 路由器连接"
+          },
+          "size": 3
+        },
+        "asus_ip": {
+          "type": "text",
+          "label": {
+            "en": "Router IP or Hostname",
+            "de": "Router IP oder Hostname",
+            "ru": "IP маршрутизатора или имя хоста",
+            "pt": "IP do roteador ou nome do host",
+            "nl": "Router IP of hostnaam",
+            "fr": "IP du routeur ou nom d'hôte",
+            "it": "IP router o hostname",
+            "es": "IP del router o nombre de host",
+            "pl": "IP routera lub nazwa hosta",
+            "uk": "IP маршрутизатора або ім'я хоста",
+            "zh-cn": "路由器 IP 或主机名"
+          },
+          "placeholder": "192.168.1.1",
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        },
+        "ssh_port": {
+          "type": "number",
+          "label": {
+            "en": "SSH Port",
+            "de": "SSH Port",
+            "ru": "SSH порт",
+            "pt": "Porta SSH",
+            "nl": "SSH poort",
+            "fr": "Port SSH",
+            "it": "Porta SSH",
+            "es": "Puerto SSH",
+            "pl": "Port SSH",
+            "uk": "SSH порт",
+            "zh-cn": "SSH 端口"
+          },
+          "min": 1,
+          "max": 65535,
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        },
+        "_authHeader": {
+          "type": "header",
+          "text": {
+            "en": "Authentication",
+            "de": "Authentifizierung",
+            "ru": "Аутентификация",
+            "pt": "Autenticação",
+            "nl": "Authenticatie",
+            "fr": "Authentification",
+            "it": "Autenticazione",
+            "es": "Autenticación",
+            "pl": "Uwierzytelnianie",
+            "uk": "Аутентифікація",
+            "zh-cn": "认证"
+          },
+          "size": 3
+        },
+        "asus_user": {
+          "type": "text",
+          "label": {
+            "en": "Login User",
+            "de": "Login Benutzer",
+            "ru": "Пользователь",
+            "pt": "Usuário de login",
+            "nl": "Login gebruiker",
+            "fr": "Utilisateur de connexion",
+            "it": "Utente di login",
+            "es": "Usuario de inicio de sesión",
+            "pl": "Użytkownik logowania",
+            "uk": "Користувач входу",
+            "zh-cn": "登录用户"
+          },
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        },
+        "asus_pw": {
+          "type": "password",
+          "label": {
+            "en": "Login Password (if not using Key File)",
+            "de": "Login Passwort (wenn kein Private Key File verwendet wird)",
+            "ru": "Пароль (если не используется файл ключа)",
+            "pt": "Senha de login (se não estiver usando arquivo de chave)",
+            "nl": "Login wachtwoord (als Key File niet gebruikt wordt)",
+            "fr": "Mot de passe de connexion (si vous n'utilisez pas de fichier de clé)",
+            "it": "Password di login (se non si utilizza il file chiave)",
+            "es": "Contraseña de inicio de sesión (si no usa archivo de clave)",
+            "pl": "Hasło logowania (jeśli nie używasz pliku klucza)",
+            "uk": "Пароль входу (якщо не використовується файл ключа)",
+            "zh-cn": "登录密码（如果不使用密钥文件）"
+          },
+          "visible": "!data.keyfile",
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        },
+        "keyfile": {
+          "type": "text",
+          "label": {
+            "en": "Path to Private Key File (optional)",
+            "de": "Pfad zum Private Key File (optional)",
+            "ru": "Путь к файлу приватного ключа (опционально)",
+            "pt": "Caminho para o arquivo de chave privada (opcional)",
+            "nl": "Pad naar Private Key File (optioneel)",
+            "fr": "Chemin vers le fichier de clé privée (optionnel)",
+            "it": "Percorso del file chiave privata (opzionale)",
+            "es": "Ruta al archivo de clave privada (opcional)",
+            "pl": "Ścieżka do pliku klucza prywatnego (opcjonalnie)",
+            "uk": "Шлях до файлу приватного ключа (опціонально)",
+            "zh-cn": "私钥文件路径（可选）"
+          },
+          "placeholder": "/path/to/private/key",
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        },
+        "keyfile_passphrase": {
+          "type": "password",
+          "label": {
+            "en": "Passphrase for Key File (if encrypted)",
+            "de": "Passphrase für Key File (falls verschlüsselt)",
+            "ru": "Парольная фраза для файла ключа (если зашифрован)",
+            "pt": "Frase secreta para arquivo de chave (se criptografado)",
+            "nl": "Wachtwoordzin voor Key File (als versleuteld)",
+            "fr": "Phrase secrète pour le fichier de clé (si chiffré)",
+            "it": "Passphrase per il file chiave (se crittografato)",
+            "es": "Frase de contraseña para archivo de clave (si está cifrado)",
+            "pl": "Hasło do pliku klucza (jeśli zaszyfrowany)",
+            "uk": "Парольна фраза для файлу ключа (якщо зашифрований)",
+            "zh-cn": "密钥文件密码短语（如果已加密）"
+          },
+          "visible": "!!data.keyfile",
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        },
+        "_intervalHeader": {
+          "type": "header",
+          "text": {
+            "en": "Polling Configuration",
+            "de": "Abfrage-Konfiguration",
+            "ru": "Конфигурация опроса",
+            "pt": "Configuração de polling",
+            "nl": "Polling configuratie",
+            "fr": "Configuration du polling",
+            "it": "Configurazione polling",
+            "es": "Configuración de polling",
+            "pl": "Konfiguracja odpytywania",
+            "uk": "Конфігурація опитування",
+            "zh-cn": "轮询配置"
+          },
+          "size": 3
+        },
+        "interval": {
+          "type": "number",
+          "label": {
+            "en": "Polling interval (ms)",
+            "de": "Abfrage Intervall (ms)",
+            "ru": "Интервал опроса (мс)",
+            "pt": "Intervalo de polling (ms)",
+            "nl": "Polling interval (ms)",
+            "fr": "Intervalle de polling (ms)",
+            "it": "Intervallo di polling (ms)",
+            "es": "Intervalo de polling (ms)",
+            "pl": "Interwał odpytywania (ms)",
+            "uk": "Інтервал опитування (мс)",
+            "zh-cn": "轮询间隔（毫秒）"
+          },
+          "min": 5000,
+          "help": {
+            "en": "Minimum: 5000ms (5 seconds)",
+            "de": "Minimum: 5000ms (5 Sekunden)",
+            "ru": "Минимум: 5000мс (5 секунд)",
+            "pt": "Mínimo: 5000ms (5 segundos)",
+            "nl": "Minimum: 5000ms (5 seconden)",
+            "fr": "Minimum: 5000ms (5 secondes)",
+            "it": "Minimo: 5000ms (5 secondi)",
+            "es": "Mínimo: 5000ms (5 segundos)",
+            "pl": "Minimum: 5000ms (5 sekund)",
+            "uk": "Мінімум: 5000мс (5 секунд)",
+            "zh-cn": "最小值：5000毫秒（5秒）"
+          },
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        },
+        "active_interval": {
+          "type": "number",
+          "label": {
+            "en": "Time Device is not active anymore (ms)",
+            "de": "Zeit bis wann das Gerät als Abwesend markiert wird (ms)",
+            "ru": "Время до признания устройства неактивным (мс)",
+            "pt": "Tempo até o dispositivo não estar mais ativo (ms)",
+            "nl": "Tijd totdat apparaat niet meer actief is (ms)",
+            "fr": "Temps jusqu'à ce que l'appareil ne soit plus actif (ms)",
+            "it": "Tempo fino a quando il dispositivo non è più attivo (ms)",
+            "es": "Tiempo hasta que el dispositivo ya no esté activo (ms)",
+            "pl": "Czas do uznania urządzenia za nieaktywne (ms)",
+            "uk": "Час до визнання пристрою неактивним (мс)",
+            "zh-cn": "设备不再活动的时间（毫秒）"
+          },
+          "min": 60000,
+          "help": {
+            "en": "Minimum: 60000ms (60 seconds / 1 minute)",
+            "de": "Minimum: 60000ms (60 Sekunden / 1 Minute)",
+            "ru": "Минимум: 60000мс (60 секунд / 1 минута)",
+            "pt": "Mínimo: 60000ms (60 segundos / 1 minuto)",
+            "nl": "Minimum: 60000ms (60 seconden / 1 minuut)",
+            "fr": "Minimum: 60000ms (60 secondes / 1 minute)",
+            "it": "Minimo: 60000ms (60 secondi / 1 minuto)",
+            "es": "Mínimo: 60000ms (60 segundos / 1 minuto)",
+            "pl": "Minimum: 60000ms (60 sekund / 1 minuta)",
+            "uk": "Мінімум: 60000мс (60 секунд / 1 хвилина)",
+            "zh-cn": "最小值：60000毫秒（60秒 / 1分钟）"
+          },
+          "sm": 12,
+          "md": 6,
+          "lg": 4
+        }
+      }
+    },
+    "devices": {
+      "type": "panel",
+      "label": {
+        "en": "Devices to Monitor",
+        "de": "Geräte zum Überwachen",
+        "ru": "Устройства для мониторинга",
+        "pt": "Dispositivos para monitorar",
+        "nl": "Te monitoren apparaten",
+        "fr": "Appareils à surveiller",
+        "it": "Dispositivi da monitorare",
+        "es": "Dispositivos para monitorear",
+        "pl": "Urządzenia do monitorowania",
+        "uk": "Пристрої для моніторингу",
+        "zh-cn": "要监控的设备"
+      },
+      "items": {
+        "devices": {
+          "type": "table",
+          "label": {
+            "en": "Addresses to monitoring",
+            "de": "Adressen für Monitoring",
+            "ru": "Адреса для мониторинга",
+            "pt": "Endereços para monitoramento",
+            "nl": "Adressen voor monitoring",
+            "fr": "Adresses à surveiller",
+            "it": "Indirizzi da monitorare",
+            "es": "Direcciones para monitoreo",
+            "pl": "Adresy do monitorowania",
+            "uk": "Адреси для моніторингу",
+            "zh-cn": "要监控的地址"
+          },
+          "items": [
+            {
+              "type": "text",
+              "attr": "name",
+              "title": {
+                "en": "Name",
+                "de": "Name",
+                "ru": "Имя",
+                "pt": "Nome",
+                "nl": "Naam",
+                "fr": "Nom",
+                "it": "Nome",
+                "es": "Nombre",
+                "pl": "Nazwa",
+                "uk": "Ім'я",
+                "zh-cn": "名称"
+              },
+              "width": "40%"
+            },
+            {
+              "type": "text",
+              "attr": "mac",
+              "title": {
+                "en": "MAC Address",
+                "de": "MAC Adresse",
+                "ru": "MAC адрес",
+                "pt": "Endereço MAC",
+                "nl": "MAC adres",
+                "fr": "Adresse MAC",
+                "it": "Indirizzo MAC",
+                "es": "Dirección MAC",
+                "pl": "Adres MAC",
+                "uk": "MAC адреса",
+                "zh-cn": "MAC 地址"
+              },
+              "width": "40%",
+              "placeholder": "AA:BB:CC:DD:EE:FF"
+            },
+            {
+              "type": "checkbox",
+              "attr": "active",
+              "title": {
+                "en": "Enabled",
+                "de": "Aktiviert",
+                "ru": "Включено",
+                "pt": "Habilitado",
+                "nl": "Ingeschakeld",
+                "fr": "Activé",
+                "it": "Abilitato",
+                "es": "Habilitado",
+                "pl": "Włączone",
+                "uk": "Увімкнено",
+                "zh-cn": "已启用"
+              },
+              "width": "20%",
+              "default": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}
