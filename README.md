@@ -4,7 +4,6 @@
 
 ![Number of Installations](http://iobroker.live/badges/asuswrt-installed.svg) ![Number of Installations](http://iobroker.live/badges/asuswrt-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
-[![Tests](https://api.travis-ci.org/mcdhrts/ioBroker.asuswrt.svg)](https://travis-ci.org/mcdhrts/ioBroker.asuswrt)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/mcdhrts/ioBroker.asuswrt/blob/master/LICENSE)
 
 [![NPM](https://nodei.co/npm/iobroker.asuswrt.png?downloads=true)](https://nodei.co/npm/iobroker.asuswrt/)
