@@ -50,9 +50,11 @@
             "zh-cn": "路由器 IP 或主机名"
           },
           "placeholder": "192.168.1.1",
+          "xs": 12,
           "sm": 12,
           "md": 6,
-          "lg": 4
+          "lg": 4,
+          "xl": 4
         },
         "ssh_port": {
           "type": "number",
@@ -71,9 +73,11 @@
           },
           "min": 1,
           "max": 65535,
+          "xs": 12,
           "sm": 12,
           "md": 6,
-          "lg": 4
+          "lg": 4,
+          "xl": 4
         },
         "_authHeader": {
           "type": "header",
@@ -107,9 +111,11 @@
             "uk": "Користувач входу",
             "zh-cn": "登录用户"
           },
+          "xs": 12,
           "sm": 12,
           "md": 6,
-          "lg": 4
+          "lg": 4,
+          "xl": 4
         },
         "asus_pw": {
           "type": "password",
@@ -127,9 +133,11 @@
             "zh-cn": "登录密码（如果不使用密钥文件）"
           },
           "visible": "!data.keyfile",
+          "xs": 12,
           "sm": 12,
           "md": 6,
-          "lg": 4
+          "lg": 4,
+          "xl": 4
         },
         "keyfile": {
           "type": "text",
@@ -147,9 +155,11 @@
             "zh-cn": "私钥文件路径（可选）"
           },
           "placeholder": "/path/to/private/key",
+          "xs": 12,
           "sm": 12,
           "md": 6,
-          "lg": 4
+          "lg": 4,
+          "xl": 4
         },
         "keyfile_passphrase": {
           "type": "password",
