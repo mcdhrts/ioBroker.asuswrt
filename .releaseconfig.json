@@ -1,6 +1,18 @@
 {
     "plugins": [
         {
+            "type": "iobroker",
+            "enabled": true
+        },
+        {
+            "type": "license",
+            "enabled": true
+        },
+        {
+            "type": "manual-review",
+            "enabled": true
+        },
+        {
             "type": "github",
             "enabled": true
         },
