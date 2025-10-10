@@ -3,37 +3,96 @@
     "name": "asuswrt",
     "version": "1.0.2",
     "news": {
-      "1.0.2": {
-        "en": "Fix admin UI 404 error, update requirements documentation, improve integration tests, update dependencies",
-        "de": "Admin UI 404 Fehler behoben, Anforderungsdokumentation aktualisiert, Integrationstests verbessert, Abhängigkeiten aktualisiert"
-      },
       "1.0.1": {
         "en": "Add Support for Compact Mode",
-        "de": "Compact Mode wird unterstützt"
+        "de": "Compact Mode wird unterstützt",
+        "ru": "Добавлена поддержка компактного режима",
+        "pt": "Adicionar suporte para modo compacto",
+        "nl": "Ondersteuning voor compacte modus toegevoegd",
+        "fr": "Ajouter le support du mode compact",
+        "it": "Aggiunto supporto per la modalità compatta",
+        "es": "Agregar soporte para modo compacto",
+        "pl": "Dodano obsługę trybu kompaktowego",
+        "uk": "Додано підтримку компактного режиму",
+        "zh-cn": "添加紧凑模式支持"
       },
       "1.0.0": {
         "en": "SSH-Key File, Polling down to 5s, Remove SIMPLE-SSH, Remove Admin V2 Support",
-        "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt"
+        "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt",
+        "ru": "Файл SSH-ключа, опрос до 5 с, удаление SIMPLE-SSH, удаление поддержки Admin V2",
+        "pt": "Arquivo de chave SSH, sondagem de 5s, remover SIMPLE-SSH, remover suporte Admin V2",
+        "nl": "SSH-sleutelbestand, polling tot 5s, SIMPLE-SSH verwijderd, Admin V2-ondersteuning verwijderd",
+        "fr": "Fichier de clé SSH, sondage à 5s, supprimer SIMPLE-SSH, supprimer le support Admin V2",
+        "it": "File chiave SSH, polling a 5s, rimuovere SIMPLE-SSH, rimuovere supporto Admin V2",
+        "es": "Archivo de clave SSH, sondeo de 5s, eliminar SIMPLE-SSH, eliminar soporte Admin V2",
+        "pl": "Plik klucza SSH, odpytywanie co 5s, usunięto SIMPLE-SSH, usunięto obsługę Admin V2",
+        "uk": "Файл SSH-ключа, опитування до 5 с, видалення SIMPLE-SSH, видалення підтримки Admin V2",
+        "zh-cn": "SSH 密钥文件，轮询至 5 秒，删除 SIMPLE-SSH，删除 Admin V2 支持"
       },
       "0.3.1": {
         "en": "Changed Test Files, no features added",
-        "de": "Test Dateien geändert, keine neuen Funktionen hinzugefügt"
+        "de": "Test Dateien geändert, keine neuen Funktionen hinzugefügt",
+        "ru": "Изменены тестовые файлы, функции не добавлены",
+        "pt": "Arquivos de teste alterados, nenhum recurso adicionado",
+        "nl": "Testbestanden gewijzigd, geen functies toegevoegd",
+        "fr": "Fichiers de test modifiés, aucune fonctionnalité ajoutée",
+        "it": "File di test modificati, nessuna funzionalità aggiunta",
+        "es": "Archivos de prueba modificados, sin funciones agregadas",
+        "pl": "Zmieniono pliki testowe, nie dodano funkcji",
+        "uk": "Змінено тестові файли, функції не додано",
+        "zh-cn": "更改测试文件，未添加功能"
       },
       "0.3.0": {
         "en": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s",
-        "de": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s"
+        "de": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s",
+        "ru": "Изменения после проверки кода, при использовании SSH2 интервал опроса теперь минимум 10 с",
+        "pt": "Alterações de revisão de código, ao usar SSH2 o intervalo de sondagem é agora mínimo 10s",
+        "nl": "Code review wijzigingen, bij gebruik van SSH2 is polling interval nu minimaal 10s",
+        "fr": "Modifications de la révision du code, lors de l'utilisation de SSH2, l'intervalle de sondage est maintenant de 10s minimum",
+        "it": "Modifiche alla revisione del codice, quando si utilizza SSH2 l'intervallo di polling è ora minimo 10s",
+        "es": "Cambios de revisión de código, al usar SSH2 el intervalo de sondeo es ahora mínimo 10s",
+        "pl": "Zmiany po przeglądzie kodu, przy użyciu SSH2 interwał odpytywania wynosi teraz minimum 10s",
+        "uk": "Зміни після перевірки коду, при використанні SSH2 інтервал опитування тепер мінімум 10 с",
+        "zh-cn": "代码审查更改，使用 SSH2 时轮询间隔现在最低为 10 秒"
       },
       "0.2.1": {
         "en": "Update Readme and add missing translations",
-        "de": "Update Readme and add missing translations"
+        "de": "Update Readme and add missing translations",
+        "ru": "Обновление Readme и добавление недостающих переводов",
+        "pt": "Atualizar Readme e adicionar traduções ausentes",
+        "nl": "Update Readme en voeg ontbrekende vertalingen toe",
+        "fr": "Mettre à jour Readme et ajouter les traductions manquantes",
+        "it": "Aggiornare Readme e aggiungere traduzioni mancanti",
+        "es": "Actualizar Readme y agregar traducciones faltantes",
+        "pl": "Zaktualizuj Readme i dodaj brakujące tłumaczenia",
+        "uk": "Оновлення Readme та додавання відсутніх перекладів",
+        "zh-cn": "更新 Readme 并添加缺失的翻译"
       },
       "0.2.0": {
         "en": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive",
-        "de": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive"
+        "de": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive",
+        "ru": "Возможность использования SSH2, который поддерживает SSH-сеанс с маршрутизатором активным",
+        "pt": "Possibilidade de usar SSH2 que mantém a sessão SSH com o roteador ativa",
+        "nl": "Mogelijkheid om SSH2 te gebruiken die de SSH-sessie met de router actief houdt",
+        "fr": "Possibilité d'utiliser SSH2 qui maintient la session SSH avec le routeur active",
+        "it": "Possibilità di utilizzare SSH2 che mantiene la sessione SSH con il router attiva",
+        "es": "Posibilidad de usar SSH2 que mantiene la sesión SSH con el enrutador activa",
+        "pl": "Możliwość użycia SSH2, który utrzymuje sesję SSH z routerem aktywną",
+        "uk": "Можливість використання SSH2, який підтримує SSH-сеанс з маршрутизатором активним",
+        "zh-cn": "可以使用 SSH2 保持与路由器的 SSH 会话活动"
       },
       "0.1.2": {
         "en": "Update wrong dependencies",
-        "de": "Update wrong dependencies"
+        "de": "Update wrong dependencies",
+        "ru": "Обновление неправильных зависимостей",
+        "pt": "Atualizar dependências incorretas",
+        "nl": "Onjuiste afhankelijkheden bijwerken",
+        "fr": "Mettre à jour les dépendances incorrectes",
+        "it": "Aggiornare dipendenze errate",
+        "es": "Actualizar dependencias incorrectas",
+        "pl": "Zaktualizuj nieprawidłowe zależności",
+        "uk": "Оновлення неправильних залежностей",
+        "zh-cn": "更新错误的依赖项"
       }
     },
     "titleLang": {
@@ -45,11 +104,22 @@
       "fr": "ASUSWRT",
       "it": "ASUSWRT",
       "es": "ASUSWRT",
-      "pl": "ASUSWRT"
+      "pl": "ASUSWRT",
+      "uk": "ASUSWRT",
+      "zh-cn": "ASUSWRT"
     },
     "desc": {
       "en": "Find Active Devices in ASUS Routers running ASUSWRT for ioBroker",
-      "de": "Finde aktive Geräte in ASUS Routers mit ASUSWRT für ioBroker"
+      "de": "Finde aktive Geräte in ASUS Routers mit ASUSWRT für ioBroker",
+      "ru": "Поиск активных устройств в маршрутизаторах ASUS с ASUSWRT для ioBroker",
+      "pt": "Encontrar dispositivos ativos em roteadores ASUS executando ASUSWRT para ioBroker",
+      "nl": "Vind actieve apparaten in ASUS-routers met ASUSWRT voor ioBroker",
+      "fr": "Trouver les appareils actifs dans les routeurs ASUS exécutant ASUSWRT pour ioBroker",
+      "it": "Trova dispositivi attivi nei router ASUS con ASUSWRT per ioBroker",
+      "es": "Encontrar dispositivos activos en enrutadores ASUS que ejecutan ASUSWRT para ioBroker",
+      "pl": "Znajdź aktywne urządzenia w routerach ASUS z ASUSWRT dla ioBroker",
+      "uk": "Пошук активних пристроїв у маршрутизаторах ASUS з ASUSWRT для ioBroker",
+      "zh-cn": "查找运行 ASUSWRT 的 ASUS 路由器中的活动设备"
     },
     "authors": [
       "mcdhrts"
