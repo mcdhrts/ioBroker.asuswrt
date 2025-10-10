@@ -139,7 +139,7 @@
     ],
     "icon": "asuswrt.png",
     "adminUI": {
-      "config": "html"
+      "config": "json"
     },
     "connectionType": "local",
     "dataSource": "poll",
