@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "news": {
+      "1.0.3": {
+        "en": "Migrate to modern i18n format with JSON Config, improve ip neigh parsing, fix repository checker issues, improve admin UI configuration interface",
+        "de": "Migration zu modernem i18n-Format mit JSON Config, verbesserte ip neigh-Analyse, Behebung von Repository-Checker-Problemen, verbesserte Admin-UI-Konfigurationsoberfläche",
+        "ru": "Миграция на современный формат i18n с JSON Config, улучшен парсинг ip neigh, исправлены проблемы проверки репозитория, улучшен интерфейс конфигурации Admin UI",
+        "pt": "Migração para formato i18n moderno com JSON Config, melhoria na análise ip neigh, correção de problemas do verificador de repositório, melhoria na interface de configuração da UI de administração",
+        "nl": "Migratie naar modern i18n-formaat met JSON Config, verbeterde ip neigh-analyse, repository checker-problemen opgelost, verbeterde admin UI-configuratie-interface",
+        "fr": "Migration vers le format i18n moderne avec JSON Config, amélioration de l'analyse ip neigh, correction des problèmes du vérificateur de référentiel, amélioration de l'interface de configuration de l'interface d'administration",
+        "it": "Migrazione al formato i18n moderno con JSON Config, miglioramento del parsing ip neigh, correzione problemi repository checker, miglioramento interfaccia configurazione admin UI",
+        "es": "Migración a formato i18n moderno con JSON Config, mejora en análisis ip neigh, corrección de problemas del verificador de repositorio, mejora en interfaz de configuración de UI de administración",
+        "pl": "Migracja do nowoczesnego formatu i18n z JSON Config, ulepszone parsowanie ip neigh, naprawiono problemy z narzędziem sprawdzania repozytorium, ulepszona interfejs konfiguracji interfejsu administratora",
+        "uk": "Міграція на сучасний формат i18n з JSON Config, покращено парсинг ip neigh, виправлено проблеми перевірки репозиторію, покращено інтерфейс конфігурації Admin UI",
+        "zh-cn": "迁移到现代 i18n 格式与 JSON Config，改进 ip neigh 解析，修复仓库检查器问题，改进管理界面配置界面"
+      },
       "1.0.2": {
         "en": "Fix admin UI 404 error, update requirements documentation, improve integration tests, update dependencies, add comprehensive translations",
         "de": "Admin UI 404 Fehler behoben, Anforderungsdokumentation aktualisiert, Integrationstests verbessert, Abhängigkeiten aktualisiert, umfassende Übersetzungen hinzugefügt",
@@ -80,19 +93,6 @@
         "pl": "Zaktualizuj Readme i dodaj brakujące tłumaczenia",
         "uk": "Оновлення Readme та додавання відсутніх перекладів",
         "zh-cn": "更新 Readme 并添加缺失的翻译"
-      },
-      "0.2.0": {
-        "en": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive",
-        "de": "Possibilty to use SSH2 which keeps the SSH Session to the Router alive",
-        "ru": "Возможность использования SSH2, который поддерживает SSH-сеанс с маршрутизатором активным",
-        "pt": "Possibilidade de usar SSH2 que mantém a sessão SSH com o roteador ativa",
-        "nl": "Mogelijkheid om SSH2 te gebruiken die de SSH-sessie met de router actief houdt",
-        "fr": "Possibilité d'utiliser SSH2 qui maintient la session SSH avec le routeur active",
-        "it": "Possibilità di utilizzare SSH2 che mantiene la sessione SSH con il router attiva",
-        "es": "Posibilidad de usar SSH2 que mantiene la sesión SSH con el enrutador activa",
-        "pl": "Możliwość użycia SSH2, który utrzymuje sesję SSH z routerem aktywną",
-        "uk": "Можливість використання SSH2, який підтримує SSH-сеанс з маршрутизатором активним",
-        "zh-cn": "可以使用 SSH2 保持与路由器的 SSH 会话活动"
       }
     },
     "titleLang": {
