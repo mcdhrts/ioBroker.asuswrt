@@ -11,7 +11,7 @@ var conn = null;
 //OTHER
 const utils = require("@iobroker/adapter-core");
 const deviceCommand = "PATH=$PATH:/bin:/usr/sbin:/sbin && ip neigh";
-const fs = require("fs");
+const fs = require("node:fs");
 
 //Maybe in future releases
 //const clearIPCacheCommand = 'ip -s -s neigh flush all';
