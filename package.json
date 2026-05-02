@@ -44,7 +44,7 @@
     "eslint": "^9.10.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "directories": {
     "lib": "lib",

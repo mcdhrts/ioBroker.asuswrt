@@ -55,6 +55,9 @@ For older ioBroker versions, install version 0.3.1
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.3 (2025-10-11)
 * (mcdhrts) Migrated to modern i18n format with separate translation files in admin/i18n/ directory
 * (mcdhrts) Migrated from HTML-based admin interface to JSON Config system (Admin 5+) for better user experience
