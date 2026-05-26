@@ -23,8 +23,8 @@ You must activate and allow SSH Connections in your Router Settings
 
 You need at least:
 * js-controller >= 6.0.11
-* admin >= 7.6.17
-* Node.js >= 18.x
+* admin >= 7.6.20
+* Node.js >= 22
 
 For older ioBroker versions, install version 0.3.1
 
@@ -108,6 +108,8 @@ For older ioBroker versions, install version 0.3.1
 
 ### 0.0.1 (2018-12-09)
 * (mcdhrts) first official beta version
+
+[Older changes](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
