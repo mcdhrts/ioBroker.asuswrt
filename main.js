@@ -658,8 +658,8 @@ function validateIPaddress(inputText) {
 /**
  * Validates if the input is a hostname checked by regex
  *
- * @param inputText
- * @returns
+ * @param {string} inputText - The text to validate as a hostname
+ * @returns {boolean} True if the input is a valid hostname
  */
 function validateHostname(inputText) {
   const validHostnameRegex =
