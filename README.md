@@ -55,6 +55,17 @@ For older ioBroker versions, install version 0.3.1
 
 ## Changelog
 
+### 1.0.5 (2026-05-26)
+* (mcdhrts) Update dependencies (@types/node 24→25, teeny-request, uuid/deepl-node cleanup)
+* (mcdhrts) Fix line endings (CRLF → LF) across all source files
+* (mcdhrts) Modernize code style: replace var with let/const
+* (mcdhrts) Add CHANGELOG_OLD.md for older changelog entries
+* (mcdhrts) Update requirements documentation (Node.js >= 22, admin >= 7.6.20)
+* (mcdhrts) Resolve all lint warnings (0 errors, 0 warnings)
+
+### 1.0.4 (2026-04-01)
+* (mcdhrts) Improve parsing of ip neigh output to handle multiple spaces, update dependencies
+
 ### 1.0.3 (2025-10-11)
 * (mcdhrts) Migrated to modern i18n format with separate translation files in admin/i18n/ directory
 * (mcdhrts) Migrated from HTML-based admin interface to JSON Config system (Admin 5+) for better user experience

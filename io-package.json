@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "news": {
+      "1.0.5": {
+        "en": "Update dependencies, fix line endings, modernize code style, add CHANGELOG_OLD.md",
+        "de": "Abhängigkeiten aktualisiert, Zeilenenden korrigiert, Code-Stil modernisiert, CHANGELOG_OLD.md hinzugefügt",
+        "ru": "Обновлены зависимости, исправлены окончания строк, улучшен стиль кода, добавлен CHANGELOG_OLD.md",
+        "pt": "Atualizar dependências, corrigir terminações de linha, modernizar estilo de código, adicionar CHANGELOG_OLD.md",
+        "nl": "Afhankelijkheden bijgewerkt, regeleindes gecorrigeerd, codestijl gemoderniseerd, CHANGELOG_OLD.md toegevoegd",
+        "fr": "Mise à jour des dépendances, correction des fins de ligne, modernisation du style de code, ajout de CHANGELOG_OLD.md",
+        "it": "Aggiornamento dipendenze, correzione terminazioni riga, modernizzazione stile codice, aggiunta CHANGELOG_OLD.md",
+        "es": "Actualizar dependencias, corregir finales de línea, modernizar estilo de código, agregar CHANGELOG_OLD.md",
+        "pl": "Aktualizacja zależności, poprawka zakończeń linii, modernizacja stylu kodu, dodanie CHANGELOG_OLD.md",
+        "uk": "Оновлено залежності, виправлено закінчення рядків, покращено стиль коду, додано CHANGELOG_OLD.md",
+        "zh-cn": "更新依赖项，修复行尾，现代化代码风格，添加 CHANGELOG_OLD.md"
+      },
       "1.0.4": {
         "en": "Improve parsing of ip neigh output to handle multiple spaces, update dependencies",
         "de": "Verbesserte Analyse der ip neigh-Ausgabe zur Behandlung mehrerer Leerzeichen, Aktualisierung der Abhängigkeiten",
