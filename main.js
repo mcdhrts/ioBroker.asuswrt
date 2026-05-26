@@ -5,8 +5,8 @@
 "use strict";
 
 //SSH2
-var Client = require("ssh2").Client;
-var conn = null;
+const Client = require("ssh2").Client;
+let conn = null;
 
 //OTHER
 const utils = require("@iobroker/adapter-core");
@@ -17,13 +17,13 @@ const { parseNeighborOutput } = require("./lib/parsing");
 //Maybe in future releases
 //const clearIPCacheCommand = 'ip -s -s neigh flush all';
 
-var timer = null;
-var stopTimer = null;
-var isStopping = false;
-var stopExecute = false;
-var lastTimeUpdateDevices = 0;
-var host = "";
-var useKeyFile = false;
+let timer = null;
+let stopTimer = null;
+let isStopping = false;
+let stopExecute = false;
+let lastTimeUpdateDevices = 0;
+const host = "";
+let useKeyFile = false;
 
 let adapter;
 function startAdapter(options) {
@@ -283,7 +283,7 @@ function processTasks(tasks, callback) {
     callback && callback();
   } else {
     const task = tasks.shift();
-    var timeout = setTimeout(function () {
+    let timeout = setTimeout(function () {
       adapter.log.warn("please update js-controller to at least 1.2.0");
       timeout = null;
       processTasks(tasks, callback);
