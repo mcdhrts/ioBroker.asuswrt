@@ -1,11 +1,12 @@
 {
   "name": "iobroker.asuswrt",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "find active devices in asus wrt routers for ioBroker",
   "main": "main.js",
   "scripts": {
-    "test": "npm run test:package && npm run test:integration",
+    "test": "npm run test:package && npm run test:unit && npm run test:integration",
     "test:package": "mocha test/package --exit",
+    "test:unit": "mocha test/unit_parsing.js --exit",
     "test:integration": "mocha test/integration --exit",
     "lint": "eslint .",
     "release": "release-script",
@@ -34,17 +35,18 @@
     "ssh2": "^1.17.0"
   },
   "devDependencies": {
-    "@alcalzone/release-script": "^3.8.0",
-    "@alcalzone/release-script-plugin-iobroker": "^3.7.2",
-    "@alcalzone/release-script-plugin-license": "^3.7.0",
-    "@alcalzone/release-script-plugin-manual-review": "^3.7.0",
+    "@alcalzone/release-script": "^5.2.0",
+    "@alcalzone/release-script-plugin-iobroker": "^5.2.0",
+    "@alcalzone/release-script-plugin-license": "^5.2.0",
+    "@alcalzone/release-script-plugin-manual-review": "^5.2.0",
     "@iobroker/adapter-dev": "^1.5.0",
     "@iobroker/eslint-config": "^2.2.0",
-    "@iobroker/testing": "^5.1.1",
+    "@iobroker/testing": "^5.2.2",
+    "@types/node": ">=22",
     "eslint": "^9.10.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "directories": {
     "lib": "lib",
@@ -52,12 +54,11 @@
   },
   "files": [
     "admin/**/*.png",
-    "admin/**/*.html",
     "admin/**/*.js",
-    "admin/**/*.json",
     "admin/**/*.json5",
     "admin/i18n/**",
     "main.js",
+    "lib/",
     "io-package.json",
     "LICENSE"
   ],

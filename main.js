@@ -11,7 +11,8 @@ var conn = null;
 //OTHER
 const utils = require("@iobroker/adapter-core");
 const deviceCommand = "PATH=$PATH:/bin:/usr/sbin:/sbin && ip neigh";
-const fs = require("fs");
+const fs = require("node:fs");
+const { parseNeighborOutput } = require("./lib/parsing");
 
 //Maybe in future releases
 //const clearIPCacheCommand = 'ip -s -s neigh flush all';
@@ -524,15 +525,9 @@ function updateDeviceSSH2(macArray) {
       stream
         .on("data", function (data) {
           adapter.log.debug(`STDOUT: ${data}`);
-          const lines = String(data).split("\n");
-          lines.forEach((line) => {
-            const macRegex = /([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}/;
-            const match = line.match(macRegex);
-            if (match) {
-              const mac = match[0].replace(/:/g, "").toLowerCase();
-              const arraystdout = line.split(" ");
-              setDeviceActive(mac, macArray, arraystdout);
-            }
+          const devices = parseNeighborOutput(data);
+          devices.forEach((device) => {
+            setDeviceActive(device.mac, macArray, device.tokens);
           });
         })
         .stderr.on("data", function (data) {

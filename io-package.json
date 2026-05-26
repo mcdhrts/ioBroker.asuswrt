@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "news": {
+      "1.0.4": {
+        "en": "Improve parsing of ip neigh output to handle multiple spaces, update dependencies",
+        "de": "Verbesserte Analyse der ip neigh-Ausgabe zur Behandlung mehrerer Leerzeichen, Aktualisierung der Abhängigkeiten",
+        "ru": "Улучшен парсинг вывода ip neigh для обработки нескольких пробелов, обновлены зависимости",
+        "pt": "Melhorada a análise da saída ip neigh para lidar com vários espaços, dependências atualizadas",
+        "nl": "Verbeterde parsing van ip neigh output om meerdere spaties te verwerken, afhankelijkheden bijgewerkt",
+        "fr": "Amélioration de l'analyse de la sortie ip neigh pour gérer plusieurs espaces, mise à jour des dépendances",
+        "it": "Migliorato il parsing dell'output ip neigh per gestire spazi multipli, aggiornate le dipendenze",
+        "es": "Mejorado el análisis de la salida ip neigh para manejar múltiples espacios, dependencias actualizadas",
+        "pl": "Ulepszono parsowanie wyjścia ip neigh w celu obsługi wielu spacji, zaktualizowano zależności",
+        "uk": "Покращено парсинг виводу ip neigh для обробки кількох пробілів, оновлено залежності",
+        "zh-cn": "改进 ip neigh 输出的解析以处理多个空格，更新依赖项"
+      },
       "1.0.3": {
         "en": "Migrate to modern i18n format with JSON Config, improve ip neigh parsing, fix repository checker issues, improve admin UI configuration interface",
         "de": "Migration zu modernem i18n-Format mit JSON Config, verbesserte ip neigh-Analyse, Behebung von Repository-Checker-Problemen, verbesserte Admin-UI-Konfigurationsoberfläche",
@@ -150,13 +163,21 @@
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.6.17"
+        "admin": ">=7.6.20"
       }
     ],
     "tier": 2,
     "extIcon": "https://raw.githubusercontent.com/mcdhrts/ioBroker.asuswrt/master/admin/asuswrt.png",
     "type": "hardware"
   },
+  "protectedNative": [
+    "asus_pw",
+    "keyfile_passphrase"
+  ],
+  "encryptedNative": [
+    "asus_pw",
+    "keyfile_passphrase"
+  ],
   "native": {
     "asus_ip": "x.x.x.x",
     "asus_user": "admin",
