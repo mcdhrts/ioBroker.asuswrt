@@ -1,10 +1,10 @@
-import iobrokerConfig from '@iobroker/eslint-config';
+import config from '@iobroker/eslint-config';
 
 export default [
     {
         ignores: ['eslint.config.mjs']
     },
-    ...iobrokerConfig,
+    ...config,
     {
         languageOptions: {
             ecmaVersion: 2020,

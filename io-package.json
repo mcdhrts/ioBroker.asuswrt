@@ -4,30 +4,17 @@
     "version": "1.0.5",
     "news": {
       "1.0.5": {
-        "en": "Update dependencies, fix line endings, modernize code style, add CHANGELOG_OLD.md",
-        "de": "Abhängigkeiten aktualisiert, Zeilenenden korrigiert, Code-Stil modernisiert, CHANGELOG_OLD.md hinzugefügt",
-        "ru": "Обновлены зависимости, исправлены окончания строк, улучшен стиль кода, добавлен CHANGELOG_OLD.md",
-        "pt": "Atualizar dependências, corrigir terminações de linha, modernizar estilo de código, adicionar CHANGELOG_OLD.md",
-        "nl": "Afhankelijkheden bijgewerkt, regeleindes gecorrigeerd, codestijl gemoderniseerd, CHANGELOG_OLD.md toegevoegd",
-        "fr": "Mise à jour des dépendances, correction des fins de ligne, modernisation du style de code, ajout de CHANGELOG_OLD.md",
-        "it": "Aggiornamento dipendenze, correzione terminazioni riga, modernizzazione stile codice, aggiunta CHANGELOG_OLD.md",
-        "es": "Actualizar dependencias, corregir finales de línea, modernizar estilo de código, agregar CHANGELOG_OLD.md",
-        "pl": "Aktualizacja zależności, poprawka zakończeń linii, modernizacja stylu kodu, dodanie CHANGELOG_OLD.md",
-        "uk": "Оновлено залежності, виправлено закінчення рядків, покращено стиль коду, додано CHANGELOG_OLD.md",
-        "zh-cn": "更新依赖项，修复行尾，现代化代码风格，添加 CHANGELOG_OLD.md"
-      },
-      "1.0.4": {
-        "en": "Improve parsing of ip neigh output to handle multiple spaces, update dependencies",
-        "de": "Verbesserte Analyse der ip neigh-Ausgabe zur Behandlung mehrerer Leerzeichen, Aktualisierung der Abhängigkeiten",
-        "ru": "Улучшен парсинг вывода ip neigh для обработки нескольких пробелов, обновлены зависимости",
-        "pt": "Melhorada a análise da saída ip neigh para lidar com vários espaços, dependências atualizadas",
-        "nl": "Verbeterde parsing van ip neigh output om meerdere spaties te verwerken, afhankelijkheden bijgewerkt",
-        "fr": "Amélioration de l'analyse de la sortie ip neigh pour gérer plusieurs espaces, mise à jour des dépendances",
-        "it": "Migliorato il parsing dell'output ip neigh per gestire spazi multipli, aggiornate le dipendenze",
-        "es": "Mejorado el análisis de la salida ip neigh para manejar múltiples espacios, dependencias actualizadas",
-        "pl": "Ulepszono parsowanie wyjścia ip neigh w celu obsługi wielu spacji, zaktualizowano zależności",
-        "uk": "Покращено парсинг виводу ip neigh для обробки кількох пробілів, оновлено залежності",
-        "zh-cn": "改进 ip neigh 输出的解析以处理多个空格，更新依赖项"
+        "en": "Update dependencies, fix line endings, modernize code style, improve ip neigh parsing, add CHANGELOG_OLD.md",
+        "de": "Abhängigkeiten aktualisiert, Zeilenenden korrigiert, Code-Stil modernisiert, ip neigh Parsing verbessert, CHANGELOG_OLD.md hinzugefügt",
+        "ru": "Обновлены зависимости, исправлены окончания строк, улучшен стиль кода, улучшен парсинг ip neigh, добавлен CHANGELOG_OLD.md",
+        "pt": "Atualizar dependências, corrigir terminações de linha, modernizar estilo de código, melhorar parsing ip neigh, adicionar CHANGELOG_OLD.md",
+        "nl": "Afhankelijkheden bijgewerkt, regeleindes gecorrigeerd, codestijl gemoderniseerd, ip neigh parsing verbeterd, CHANGELOG_OLD.md toegevoegd",
+        "fr": "Mise à jour des dépendances, correction des fins de ligne, modernisation du style de code, amélioration de l'analyse ip neigh, ajout de CHANGELOG_OLD.md",
+        "it": "Aggiornamento dipendenze, correzione terminazioni riga, modernizzazione stile codice, miglioramento parsing ip neigh, aggiunta CHANGELOG_OLD.md",
+        "es": "Actualizar dependencias, corregir finales de línea, modernizar estilo de código, mejorar análisis ip neigh, agregar CHANGELOG_OLD.md",
+        "pl": "Aktualizacja zależności, poprawka zakończeń linii, modernizacja stylu kodu, ulepszone parsowanie ip neigh, dodanie CHANGELOG_OLD.md",
+        "uk": "Оновлено залежності, виправлено закінчення рядків, покращено стиль коду, покращено парсинг ip neigh, додано CHANGELOG_OLD.md",
+        "zh-cn": "更新依赖项，修复行尾，现代化代码风格，改进 ip neigh 解析，添加 CHANGELOG_OLD.md"
       },
       "1.0.3": {
         "en": "Migrate to modern i18n format with JSON Config, improve ip neigh parsing, fix repository checker issues, improve admin UI configuration interface",
@@ -93,32 +80,6 @@
         "pl": "Zmieniono pliki testowe, nie dodano funkcji",
         "uk": "Змінено тестові файли, функції не додано",
         "zh-cn": "更改测试文件，未添加功能"
-      },
-      "0.3.0": {
-        "en": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s",
-        "de": "Code Review Changes, when using SSH2 Polling Intervall is lower to now minimum 10s",
-        "ru": "Изменения после проверки кода, при использовании SSH2 интервал опроса теперь минимум 10 с",
-        "pt": "Alterações de revisão de código, ao usar SSH2 o intervalo de sondagem é agora mínimo 10s",
-        "nl": "Code review wijzigingen, bij gebruik van SSH2 is polling interval nu minimaal 10s",
-        "fr": "Modifications de la révision du code, lors de l'utilisation de SSH2, l'intervalle de sondage est maintenant de 10s minimum",
-        "it": "Modifiche alla revisione del codice, quando si utilizza SSH2 l'intervallo di polling è ora minimo 10s",
-        "es": "Cambios de revisión de código, al usar SSH2 el intervalo de sondeo es ahora mínimo 10s",
-        "pl": "Zmiany po przeglądzie kodu, przy użyciu SSH2 interwał odpytywania wynosi teraz minimum 10s",
-        "uk": "Зміни після перевірки коду, при використанні SSH2 інтервал опитування тепер мінімум 10 с",
-        "zh-cn": "代码审查更改，使用 SSH2 时轮询间隔现在最低为 10 秒"
-      },
-      "0.2.1": {
-        "en": "Update Readme and add missing translations",
-        "de": "Update Readme and add missing translations",
-        "ru": "Обновление Readme и добавление недостающих переводов",
-        "pt": "Atualizar Readme e adicionar traduções ausentes",
-        "nl": "Update Readme en voeg ontbrekende vertalingen toe",
-        "fr": "Mettre à jour Readme et ajouter les traductions manquantes",
-        "it": "Aggiornare Readme e aggiungere traduzioni mancanti",
-        "es": "Actualizar Readme y agregar traducciones faltantes",
-        "pl": "Zaktualizuj Readme i dodaj brakujące tłumaczenia",
-        "uk": "Оновлення Readme та додавання відсутніх перекладів",
-        "zh-cn": "更新 Readme 并添加缺失的翻译"
       }
     },
     "titleLang": {

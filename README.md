@@ -55,13 +55,19 @@ For older ioBroker versions, install version 0.3.1
 
 ## Changelog
 
-### 1.0.5 (2026-05-26)
-* (mcdhrts) Update dependencies (@types/node 24→25, teeny-request, uuid/deepl-node cleanup)
-* (mcdhrts) Fix line endings (CRLF → LF) across all source files
-* (mcdhrts) Modernize code style: replace var with let/const
-* (mcdhrts) Add CHANGELOG_OLD.md for older changelog entries
-* (mcdhrts) Update requirements documentation (Node.js >= 22, admin >= 7.6.20)
-* (mcdhrts) Resolve all lint warnings (0 errors, 0 warnings)
+### 1.0.5 (2026-05-28)
+* (mcdhrts) Fix deprecated method usage: use delObject with recursive flag (Issue #97)
+* (mcdhrts) Fix eslint.config.mjs to properly use @iobroker/eslint-config (E0077)
+* (mcdhrts) Add missing xs/xl size attributes to admin jsonConfig fields (E5507)
+* (mcdhrts) Update workflow node.js version to 24 for deploy and lint jobs (E3022, S3021)
+* (mcdhrts) Add needs dependency between adapter-tests and check-and-lint jobs (S3014)
+* (mcdhrts) Add prettier.config.mjs for @iobroker/eslint-config compatibility (W0076)
+* (mcdhrts) Remove obsolete eslint devDependency (W0078)
+* (mcdhrts) Fix @types/node version constraint to ~22 (W0066)
+* (mcdhrts) Trim common.news to 7 entries (W1032)
+* (mcdhrts) Fix dependabot: add cooldown, ignore @types/node major, increase PR limit (W8915, W8917, S8908)
+* (mcdhrts) Improve ip neigh parsing to handle multiple spaces
+* (mcdhrts) Modernize code style, fix line endings, add CHANGELOG_OLD.md
 
 ### 1.0.4 (2026-04-01)
 * (mcdhrts) Improve parsing of ip neigh output to handle multiple spaces, update dependencies
