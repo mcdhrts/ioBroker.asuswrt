@@ -1,0 +1,16 @@
+{
+    "Active Interval": "Time Device is not active Anymore (ms)",
+    "Asus IP": "Asus Router IP-Address",
+    "Asus Password": "Login Password (if you not use Key File)",
+    "Asus User": "Login User",
+    "Enabled": "Device Polling Enabled",
+    "Private Key File": "Path to Private Key File (if not used PW)",
+    "Private Key File Passphrase": "Passphrase for the Key File if Encrypted (empty if Key File is not encrypted)",
+    "SSH Port": "SSH Port (Standard 22)",
+    "active": "Active",
+    "addresses": "addresses to monitoring",
+    "interval": "Polling interval (ms)",
+    "macaddress": "Mac Address",
+    "name": "Name",
+    "settings": "Adapter settings"
+}

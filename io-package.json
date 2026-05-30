@@ -3,6 +3,9 @@
     "name": "asuswrt",
     "version": "1.0.5",
     "news": {
+      "1.0.5": {
+        "en": "Fix repository checker issues, migrate i18n to short format, add responsive size attributes, remove untranslated i18n files"
+      },
       "1.0.3": {
         "en": "Migrate to modern i18n format with JSON Config, improve ip neigh parsing, fix repository checker issues, improve admin UI configuration interface",
         "de": "Migration zu modernem i18n-Format mit JSON Config, verbesserte ip neigh-Analyse, Behebung von Repository-Checker-Problemen, verbesserte Admin-UI-Konfigurationsoberfläche",
