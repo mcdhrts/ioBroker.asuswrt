@@ -60,12 +60,12 @@ function startAdapter(options) {
 
 function stop() {
     if (stopTimer) {
-        clearTimeout(stopTimer);
+        adapter.clearTimeout(stopTimer);
     }
 
     // Stop only if schedule mode
     if (adapter.common && adapter.common.mode == 'schedule') {
-        stopTimer = setTimeout(function () {
+        stopTimer = adapter.setTimeout(function () {
             stopTimer = null;
             if (timer) {
                 clearInterval(timer);
@@ -274,7 +274,7 @@ function processTasks(tasks, callback) {
         callback && callback();
     } else {
         const task = tasks.shift();
-        let timeout = setTimeout(function () {
+        let timeout = adapter.setTimeout(function () {
             adapter.log.warn('please update js-controller to at least 1.2.0');
             timeout = null;
             processTasks(tasks, callback);
@@ -283,7 +283,7 @@ function processTasks(tasks, callback) {
         if (task.type === 'extendObject') {
             adapter.extendObject(task.id, task.data, function (/* err */) {
                 if (timeout) {
-                    clearTimeout(timeout);
+                    adapter.clearTimeout(timeout);
                     timeout = null;
                     setImmediate(processTasks, tasks, callback);
                 }
@@ -291,7 +291,7 @@ function processTasks(tasks, callback) {
         } else if (task.type === 'delObject') {
             adapter.delObject(task.id, { recursive: true }, function (/* err */) {
                 if (timeout) {
-                    clearTimeout(timeout);
+                    adapter.clearTimeout(timeout);
                     timeout = null;
                     setImmediate(processTasks, tasks, callback);
                 }
@@ -299,7 +299,7 @@ function processTasks(tasks, callback) {
         } else {
             adapter.log.error(`Unknown task name: ${JSON.stringify(task)}`);
             if (timeout) {
-                clearTimeout(timeout);
+                adapter.clearTimeout(timeout);
                 timeout = null;
                 setImmediate(processTasks, tasks, callback);
             }
@@ -393,12 +393,12 @@ function checkDevice(mac) {
 
 function startCheckActiveDevices(hosts) {
     if (stopTimer) {
-        clearTimeout(stopTimer);
+        adapter.clearTimeout(stopTimer);
     }
     adapter.log.debug('Start check if Device still active');
     if (!isStopping) {
         checkActiveDevices(hosts);
-        setTimeout(function () {
+        adapter.setTimeout(function () {
             startCheckActiveDevices(hosts);
         }, 30000);
     }
@@ -457,7 +457,7 @@ function startUpdateDevicesSSH2(hosts) {
         stopExecute = true;
         if (!isStopping) {
             adapter.log.info('Attempting to reconnect in 90 seconds...');
-            setTimeout(function () {
+            adapter.setTimeout(function () {
                 restartSSH2(hosts);
             }, 90000);
         }
@@ -468,7 +468,7 @@ function startUpdateDevicesSSH2(hosts) {
         if (!isStopping && !stopExecute) {
             adapter.log.info('Connection closed unexpectedly, attempting to reconnect in 90 seconds...');
             stopExecute = true;
-            setTimeout(function () {
+            adapter.setTimeout(function () {
                 restartSSH2(hosts);
             }, 90000);
         }
@@ -482,13 +482,13 @@ function startUpdateDevicesSSH2(hosts) {
 
 function startCommandSSH2(hosts) {
     if (stopTimer) {
-        clearTimeout(stopTimer);
+        adapter.clearTimeout(stopTimer);
     }
     if (!isStopping) {
         if (stopExecute === false) {
             updateDeviceSSH2(hosts);
             setLastUpdateTime();
-            setTimeout(function () {
+            adapter.setTimeout(function () {
                 startCommandSSH2(hosts);
             }, adapter.config.interval);
         }
@@ -517,7 +517,7 @@ function updateDeviceSSH2(macArray) {
         if (String(error) === 'Error: Not connected') {
             adapter.log.error('SSH2 is not connected, try new Connection in 90s');
             stopExecute = true;
-            setTimeout(function () {
+            adapter.setTimeout(function () {
                 restartSSH2(macArray);
             }, 90000);
         } else {
@@ -559,7 +559,7 @@ function checkKeyFile(callback) {
 
 function getActiveDevices(hosts) {
     if (stopTimer) {
-        clearTimeout(stopTimer);
+        adapter.clearTimeout(stopTimer);
     }
 
     if (!hosts) {
@@ -604,11 +604,11 @@ function getActiveDevices(hosts) {
             return;
         }
 
-        setTimeout(function () {
+        adapter.setTimeout(function () {
             startUpdateDevicesSSH2(hosts);
         }, 5000);
 
-        setTimeout(function () {
+        adapter.setTimeout(function () {
             startCheckActiveDevices(hosts);
         }, 30000);
     });

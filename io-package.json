@@ -4,7 +4,17 @@
     "version": "1.0.5",
     "news": {
       "1.0.5": {
-        "en": "Fix repository checker issues, migrate i18n to short format, add responsive size attributes, remove untranslated i18n files"
+        "en": "Fix repository checker issues, migrate i18n to short format, add responsive size attributes, translate i18n files",
+        "de": "Repository-Checker-Probleme behoben, i18n auf Kurzformat migriert, responsive Size-Attribute ergänzt, i18n-Dateien übersetzt",
+        "ru": "Исправлены проблемы проверки репозитория, миграция i18n на краткий формат, добавлены адаптивные атрибуты размера, переведены файлы i18n",
+        "pt": "Corrigidos problemas do verificador de repositório, migração i18n para formato curto, adicionados atributos de tamanho responsivo, traduzidos arquivos i18n",
+        "nl": "Repository checker-problemen opgelost, i18n gemigreerd naar kort formaaat, responsieve grootte-attributen toegevoegd, i18n-bestanden vertaald",
+        "fr": "Correction des problèmes du vérificateur de référentiel, migration i18n au format court, ajout d'attributs de taille responsive, traduction des fichiers i18n",
+        "it": "Risolti problemi del controllo repository, migrazione i18n al formato breve, aggiunti attributi di dimensione responsive, tradotti file i18n",
+        "es": "Corregidos problemas del verificador de repositorio, migración i18n a formato corto, añadidos atributos de tamaño responsive, traducidos archivos i18n",
+        "pl": "Naprawiono problemy sprawdzania repozytorium, migracja i18n do formatu krótkiego, dodano atrybuty rozmiaru responsywnego, przetłumaczono pliki i18n",
+        "uk": "Виправлено проблеми перевірки репозиторію, міграція i18n на короткий формат, додано адаптивні атрибути розміру, перекладено файли i18n",
+        "zh-cn": "修复仓库检查器问题，i18n 迁移为短格式，添加响应式尺寸属性，翻译 i18n 文件"
       },
       "1.0.3": {
         "en": "Migrate to modern i18n format with JSON Config, improve ip neigh parsing, fix repository checker issues, improve admin UI configuration interface",
