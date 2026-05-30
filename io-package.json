@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "news": {
+      "1.0.6": {
+        "en": "Fix all repository checker issues, replace setTimeout with adapter.setTimeout, add tsconfig.json",
+        "de": "Alle Repository-Checker-Probleme behoben, setTimeout durch adapter.setTimeout ersetzt, tsconfig.json hinzugefügt",
+        "ru": "Исправлены все проблемы проверки репозитория, setTimeout заменён на adapter.setTimeout, добавлен tsconfig.json",
+        "pt": "Corrigidos todos os problemas do verificador de repositório, setTimeout substituído por adapter.setTimeout, adicionado tsconfig.json",
+        "nl": "Alle repository checker-problemen opgelost, setTimeout vervangen door adapter.setTimeout, tsconfig.json toegevoegd",
+        "fr": "Correction de tous les problèmes du vérificateur de référentiel, setTimeout remplacé par adapter.setTimeout, ajout de tsconfig.json",
+        "it": "Risolti tutti i problemi del controllo repository, setTimeout sostituito con adapter.setTimeout, aggiunto tsconfig.json",
+        "es": "Corregidos todos los problemas del verificador de repositorio, setTimeout reemplazado por adapter.setTimeout, añadido tsconfig.json",
+        "pl": "Naprawiono wszystkie problemy sprawdzania repozytorium, setTimeout zastąpiony przez adapter.setTimeout, dodano tsconfig.json",
+        "uk": "Виправлено всі проблеми перевірки репозиторію, setTimeout замінено на adapter.setTimeout, додано tsconfig.json",
+        "zh-cn": "修复所有仓库检查器问题，将 setTimeout 替换为 adapter.setTimeout，添加 tsconfig.json"
+      },
       "1.0.5": {
         "en": "Fix repository checker issues, migrate i18n to short format, add responsive size attributes, translate i18n files",
         "de": "Repository-Checker-Probleme behoben, i18n auf Kurzformat migriert, responsive Size-Attribute ergänzt, i18n-Dateien übersetzt",
