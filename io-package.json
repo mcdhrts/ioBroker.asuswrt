@@ -3,19 +3,6 @@
     "name": "asuswrt",
     "version": "1.0.5",
     "news": {
-      "1.0.5": {
-        "en": "Update dependencies, fix line endings, modernize code style, improve ip neigh parsing, add CHANGELOG_OLD.md",
-        "de": "Abhängigkeiten aktualisiert, Zeilenenden korrigiert, Code-Stil modernisiert, ip neigh Parsing verbessert, CHANGELOG_OLD.md hinzugefügt",
-        "ru": "Обновлены зависимости, исправлены окончания строк, улучшен стиль кода, улучшен парсинг ip neigh, добавлен CHANGELOG_OLD.md",
-        "pt": "Atualizar dependências, corrigir terminações de linha, modernizar estilo de código, melhorar parsing ip neigh, adicionar CHANGELOG_OLD.md",
-        "nl": "Afhankelijkheden bijgewerkt, regeleindes gecorrigeerd, codestijl gemoderniseerd, ip neigh parsing verbeterd, CHANGELOG_OLD.md toegevoegd",
-        "fr": "Mise à jour des dépendances, correction des fins de ligne, modernisation du style de code, amélioration de l'analyse ip neigh, ajout de CHANGELOG_OLD.md",
-        "it": "Aggiornamento dipendenze, correzione terminazioni riga, modernizzazione stile codice, miglioramento parsing ip neigh, aggiunta CHANGELOG_OLD.md",
-        "es": "Actualizar dependencias, corregir finales de línea, modernizar estilo de código, mejorar análisis ip neigh, agregar CHANGELOG_OLD.md",
-        "pl": "Aktualizacja zależności, poprawka zakończeń linii, modernizacja stylu kodu, ulepszone parsowanie ip neigh, dodanie CHANGELOG_OLD.md",
-        "uk": "Оновлено залежності, виправлено закінчення рядків, покращено стиль коду, покращено парсинг ip neigh, додано CHANGELOG_OLD.md",
-        "zh-cn": "更新依赖项，修复行尾，现代化代码风格，改进 ip neigh 解析，添加 CHANGELOG_OLD.md"
-      },
       "1.0.3": {
         "en": "Migrate to modern i18n format with JSON Config, improve ip neigh parsing, fix repository checker issues, improve admin UI configuration interface",
         "de": "Migration zu modernem i18n-Format mit JSON Config, verbesserte ip neigh-Analyse, Behebung von Repository-Checker-Problemen, verbesserte Admin-UI-Konfigurationsoberfläche",

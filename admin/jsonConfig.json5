@@ -290,6 +290,11 @@
       "items": {
         "devices": {
           "type": "table",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
           "label": {
             "en": "Addresses to monitoring",
             "de": "Adressen für Monitoring",
