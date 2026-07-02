@@ -48,6 +48,14 @@
   "engines": {
     "node": ">=22"
   },
+  "overrides": {
+    "protobufjs": "^7.5.6",
+    "serialize-javascript": "^7.0.5",
+    "esbuild": "^0.25.0",
+    "flatted": "^3.4.2",
+    "jws": "^4.0.1",
+    "glob": "^10.5.0"
+  },
   "directories": {
     "lib": "lib",
     "test": "test"
