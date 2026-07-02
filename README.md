@@ -55,6 +55,12 @@ For older ioBroker versions, install version 0.3.1
 
 ## Changelog
 
+### 1.0.6 (2026-05-30)
+* (mcdhrts) Resolve repository checker issues, deprecated methods and improve CI (#95, #97)
+* (mcdhrts) Translate i18n files into native languages and restore missing language files (#95)
+* (mcdhrts) Resolve all remaining repository checker issues (#99)
+* (mcdhrts) Update tsconfig node target from template (#98)
+
 ### 1.0.5 (2026-05-28)
 * (mcdhrts) Fix deprecated method usage: use delObject with recursive flag (Issue #97)
 * (mcdhrts) Fix eslint.config.mjs to properly use @iobroker/eslint-config (E0077)
