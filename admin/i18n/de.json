@@ -1,4 +1,6 @@
 {
+    "/path/to/private/key": "/path/to/private/key",
+    "AA:BB:CC:DD:EE:FF": "AA:BB:CC:DD:EE:FF",
     "Active Interval": "Zeit bis wann das Gerät als Abesend markiert wird (ms)",
     "Asus IP": "Asus Router IP-Adresse",
     "Asus Password": "Login Passwort (wenn kein Private Key File verwendet wird)",
