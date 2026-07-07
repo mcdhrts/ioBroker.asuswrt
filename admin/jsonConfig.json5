@@ -1,5 +1,5 @@
 {
-  "i18n": false,
+  "i18n": true,
   "type": "tabs",
   "items": {
     "mainSettings": {
@@ -50,7 +50,19 @@
             "uk": "IP маршрутизатора або ім'я хоста",
             "zh-cn": "路由器 IP 或主机名"
           },
-          "placeholder": "192.168.1.1",
+          "placeholder": {
+            "en": "192.168.1.1",
+            "de": "192.168.1.1",
+            "ru": "192.168.1.1",
+            "pt": "192.168.1.1",
+            "nl": "192.168.1.1",
+            "fr": "192.168.1.1",
+            "it": "192.168.1.1",
+            "es": "192.168.1.1",
+            "pl": "192.168.1.1",
+            "uk": "192.168.1.1",
+            "zh-cn": "192.168.1.1"
+          },
           "xs": 12,
           "sm": 12,
           "md": 6,
@@ -155,7 +167,19 @@
             "uk": "Шлях до файлу приватного ключа (опціонально)",
             "zh-cn": "私钥文件路径（可选）"
           },
-          "placeholder": "/path/to/private/key",
+          "placeholder": {
+            "en": "/path/to/private/key",
+            "de": "/path/to/private/key",
+            "ru": "/path/to/private/key",
+            "pt": "/path/to/private/key",
+            "nl": "/path/to/private/key",
+            "fr": "/path/to/private/key",
+            "it": "/path/to/private/key",
+            "es": "/path/to/private/key",
+            "pl": "/path/to/private/key",
+            "uk": "/path/to/private/key",
+            "zh-cn": "/path/to/private/key"
+          },
           "xs": 12,
           "sm": 12,
           "md": 6,
@@ -345,7 +369,19 @@
                 "zh-cn": "MAC 地址"
               },
               "width": "40%",
-              "placeholder": "AA:BB:CC:DD:EE:FF"
+              "placeholder": {
+                "en": "AA:BB:CC:DD:EE:FF",
+                "de": "AA:BB:CC:DD:EE:FF",
+                "ru": "AA:BB:CC:DD:EE:FF",
+                "pt": "AA:BB:CC:DD:EE:FF",
+                "nl": "AA:BB:CC:DD:EE:FF",
+                "fr": "AA:BB:CC:DD:EE:FF",
+                "it": "AA:BB:CC:DD:EE:FF",
+                "es": "AA:BB:CC:DD:EE:FF",
+                "pl": "AA:BB:CC:DD:EE:FF",
+                "uk": "AA:BB:CC:DD:EE:FF",
+                "zh-cn": "AA:BB:CC:DD:EE:FF"
+              }
             },
             {
               "type": "checkbox",
