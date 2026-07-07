@@ -1,4 +1,5 @@
 {
+    "/path/to/private/key": "/path/to/private/key",
     "Active Interval": "Tijd totdat apparaat niet meer actief is (ms)",
     "Asus IP": "IP-adres van ASUS-router",
     "Asus Password": "Inlogwachtwoord (als Key File niet gebruikt wordt)",

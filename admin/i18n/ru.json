@@ -1,4 +1,5 @@
 {
+    "/path/to/private/key": "/path/to/private/key",
     "Active Interval": "Устройство времени больше не активно (ms)",
     "Asus IP": "Asus IP-адрес маршрутизатора",
     "Asus Password": "Логин Пароль (if you not use Key File)",

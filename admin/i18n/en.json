@@ -1,4 +1,5 @@
 {
+    "/path/to/private/key": "/path/to/private/key",
     "Active Interval": "Time Device is not active Anymore (ms)",
     "Asus IP": "Asus Router IP-Address",
     "Asus Password": "Login Password (if you not use Key File)",

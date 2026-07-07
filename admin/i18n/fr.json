@@ -1,4 +1,5 @@
 {
+    "/path/to/private/key": "/path/to/private/key",
     "Active Interval": "Temps avant que l'appareil ne soit plus actif (ms)",
     "Asus IP": "Adresse IP du routeur ASUS",
     "Asus Password": "Mot de passe de connexion (si vous n'utilisez pas de fichier de clé)",
