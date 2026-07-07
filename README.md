@@ -55,6 +55,15 @@ For older ioBroker versions, install version 0.3.1
 
 ## Changelog
 
+### 1.0.7 (2026-07-07)
+* (mcdhrts) Resolve all remaining repository checker issues (#106)
+* (mcdhrts) Update dependencies: @iobroker/adapter-core ^3.4.1, @alcalzone/release-script ^5.2.1, @types/node ~22
+* (mcdhrts) Add explicit "i18n": true to admin/jsonConfig.json5
+* (mcdhrts) Translate remaining untranslated ru i18n keys
+* (mcdhrts) Add 1.0.6 changelog entry to README
+* (mcdhrts) Add dependency overrides to reduce transitive dev-dependency security vulnerabilities
+* (mcdhrts) Merge form-data security update
+
 ### 1.0.6 (2026-05-30)
 * (mcdhrts) Resolve repository checker issues, deprecated methods and improve CI (#95, #97)
 * (mcdhrts) Translate i18n files into native languages and restore missing language files (#95)

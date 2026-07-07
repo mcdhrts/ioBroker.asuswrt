@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "news": {
+      "1.0.7": {
+        "en": "Resolve all repository checker issues (#106), update dependencies (adapter-core 3.4.1, release-script 5.2.1), add jsonConfig i18n, add dependency overrides for security",
+        "de": "Alle Repository-Checker-Probleme behoben (#106), Abhängigkeiten aktualisiert (adapter-core 3.4.1, release-script 5.2.1), jsonConfig i18n hinzugefügt, Dependency-Overrides für Sicherheit hinzugefügt",
+        "ru": "Исправлены все проблемы проверки репозитория (#106), обновлены зависимости (adapter-core 3.4.1, release-script 5.2.1), добавлен jsonConfig i18n, добавлены переопределения зависимостей для безопасности",
+        "pt": "Resolvidos todos os problemas do verificador de repositório (#106), atualizadas as dependências (adapter-core 3.4.1, release-script 5.2.1), adicionado i18n do jsonConfig, adicionadas substituições de dependência de segurança",
+        "nl": "Alle repository checker-problemen opgelost (#106), afhankelijkheden bijgewerkt (adapter-core 3.4.1, release-script 5.2.1), jsonConfig i18n toegevoegd, afhankelijkheidsoverschrijvingen voor beveiliging toegevoegd",
+        "fr": "Résolution de tous les problèmes du vérificateur de référentiel (#106), mise à jour des dépendances (adapter-core 3.4.1, release-script 5.2.1), ajout de jsonConfig i18n et des remplacements de dépendance de sécurité",
+        "it": "Risolti tutti i problemi del controllo repository (#106), aggiornate le dipendenze (adapter-core 3.4.1, release-script 5.2.1), aggiunto jsonConfig i18n, aggiunti override delle dipendenze di sicurezza",
+        "es": "Resueltos todos los problemas del verificador de repositorio (#106), actualizadas las dependencias (adapter-core 3.4.1, release-script 5.2.1), añadido jsonConfig i18n y sobreescrituras de dependencias de seguridad",
+        "pl": "Naprawiono wszystkie problemy sprawdzania repozytorium (#106), zaktualizowano zależności (adapter-core 3.4.1, release-script 5.2.1), dodano jsonConfig i18n i przesłonięcia zależności bezpieczeństwa",
+        "uk": "Виправлено всі проблеми перевірки репозиторію (#106), оновлено залежності (adapter-core 3.4.1, release-script 5.2.1), додано jsonConfig i18n та перевизначення залежностей безпеки",
+        "zh-cn": "修复所有仓库检查器问题 (#106)，更新依赖项 (adapter-core 3.4.1, release-script 5.2.1)，添加 jsonConfig i18n 和安全依赖项覆盖"
+      },
       "1.0.6": {
         "en": "Fix all repository checker issues, replace setTimeout with adapter.setTimeout, add tsconfig.json",
         "de": "Alle Repository-Checker-Probleme behoben, setTimeout durch adapter.setTimeout ersetzt, tsconfig.json hinzugefügt",
@@ -80,19 +93,6 @@
         "pl": "Plik klucza SSH, odpytywanie co 5s, usunięto SIMPLE-SSH, usunięto obsługę Admin V2",
         "uk": "Файл SSH-ключа, опитування до 5 с, видалення SIMPLE-SSH, видалення підтримки Admin V2",
         "zh-cn": "SSH 密钥文件，轮询至 5 秒，删除 SIMPLE-SSH，删除 Admin V2 支持"
-      },
-      "0.3.1": {
-        "en": "Changed Test Files, no features added",
-        "de": "Test Dateien geändert, keine neuen Funktionen hinzugefügt",
-        "ru": "Изменены тестовые файлы, функции не добавлены",
-        "pt": "Arquivos de teste alterados, nenhum recurso adicionado",
-        "nl": "Testbestanden gewijzigd, geen functies toegevoegd",
-        "fr": "Fichiers de test modifiés, aucune fonctionnalité ajoutée",
-        "it": "File di test modificati, nessuna funzionalità aggiunta",
-        "es": "Archivos de prueba modificados, sin funciones agregadas",
-        "pl": "Zmieniono pliki testowe, nie dodano funkcji",
-        "uk": "Змінено тестові файли, функції не додано",
-        "zh-cn": "更改测试文件，未添加功能"
       }
     },
     "titleLang": {
