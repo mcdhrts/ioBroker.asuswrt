@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "asuswrt",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "news": {
+      "1.0.8": {
+        "en": "Node.js 26 is now tested and supported, update dependencies (adapter-core 3.4.3, testing 6.3.2), Dependabot auto-merge uses pull_request instead of pull_request_target",
+        "de": "Node.js 26 wird jetzt getestet und unterstützt, Abhängigkeiten aktualisiert (adapter-core 3.4.3, testing 6.3.2), Dependabot-Auto-Merge nutzt pull_request statt pull_request_target",
+        "ru": "Node.js 26 теперь тестируется и поддерживается, обновлены зависимости (adapter-core 3.4.3, testing 6.3.2), автослияние Dependabot использует pull_request вместо pull_request_target",
+        "pt": "O Node.js 26 agora é testado e suportado, atualizadas as dependências (adapter-core 3.4.3, testing 6.3.2), o auto-merge do Dependabot usa pull_request em vez de pull_request_target",
+        "nl": "Node.js 26 wordt nu getest en ondersteund, afhankelijkheden bijgewerkt (adapter-core 3.4.3, testing 6.3.2), Dependabot auto-merge gebruikt pull_request in plaats van pull_request_target",
+        "fr": "Node.js 26 est désormais testé et pris en charge, mise à jour des dépendances (adapter-core 3.4.3, testing 6.3.2), l'auto-merge Dependabot utilise pull_request au lieu de pull_request_target",
+        "it": "Node.js 26 è ora testato e supportato, aggiornate le dipendenze (adapter-core 3.4.3, testing 6.3.2), l'auto-merge di Dependabot usa pull_request invece di pull_request_target",
+        "es": "Node.js 26 ahora se prueba y es compatible, actualizadas las dependencias (adapter-core 3.4.3, testing 6.3.2), el auto-merge de Dependabot usa pull_request en lugar de pull_request_target",
+        "pl": "Node.js 26 jest teraz testowany i obsługiwany, zaktualizowano zależności (adapter-core 3.4.3, testing 6.3.2), auto-merge Dependabota używa pull_request zamiast pull_request_target",
+        "uk": "Node.js 26 тепер тестується та підтримується, оновлено залежності (adapter-core 3.4.3, testing 6.3.2), автозлиття Dependabot використовує pull_request замість pull_request_target",
+        "zh-cn": "现已测试并支持 Node.js 26，更新依赖项 (adapter-core 3.4.3, testing 6.3.2)，Dependabot 自动合并改用 pull_request 代替 pull_request_target"
+      },
       "1.0.7": {
         "en": "Resolve all repository checker issues (#106), update dependencies (adapter-core 3.4.1, release-script 5.2.1), add jsonConfig i18n, add dependency overrides for security",
         "de": "Alle Repository-Checker-Probleme behoben (#106), Abhängigkeiten aktualisiert (adapter-core 3.4.1, release-script 5.2.1), jsonConfig i18n hinzugefügt, Dependency-Overrides für Sicherheit hinzugefügt",
@@ -80,19 +93,6 @@
         "pl": "Dodano obsługę trybu kompaktowego",
         "uk": "Додано підтримку компактного режиму",
         "zh-cn": "添加紧凑模式支持"
-      },
-      "1.0.0": {
-        "en": "SSH-Key File, Polling down to 5s, Remove SIMPLE-SSH, Remove Admin V2 Support",
-        "de": "SSH-Key File, Polling mininum auf 5s heruntergesetzt, SIMPLE-SSH Support entfernt, Admin V2 Support entfernt",
-        "ru": "Файл SSH-ключа, опрос до 5 с, удаление SIMPLE-SSH, удаление поддержки Admin V2",
-        "pt": "Arquivo de chave SSH, sondagem de 5s, remover SIMPLE-SSH, remover suporte Admin V2",
-        "nl": "SSH-sleutelbestand, polling tot 5s, SIMPLE-SSH verwijderd, Admin V2-ondersteuning verwijderd",
-        "fr": "Fichier de clé SSH, sondage à 5s, supprimer SIMPLE-SSH, supprimer le support Admin V2",
-        "it": "File chiave SSH, polling a 5s, rimuovere SIMPLE-SSH, rimuovere supporto Admin V2",
-        "es": "Archivo de clave SSH, sondeo de 5s, eliminar SIMPLE-SSH, eliminar soporte Admin V2",
-        "pl": "Plik klucza SSH, odpytywanie co 5s, usunięto SIMPLE-SSH, usunięto obsługę Admin V2",
-        "uk": "Файл SSH-ключа, опитування до 5 с, видалення SIMPLE-SSH, видалення підтримки Admin V2",
-        "zh-cn": "SSH 密钥文件，轮询至 5 秒，删除 SIMPLE-SSH，删除 Admin V2 支持"
       }
     },
     "titleLang": {
